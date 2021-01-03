@@ -1,9 +1,9 @@
-using GraphiQl;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProShop.Web.IoC;
 
 namespace ProShop
 {
@@ -19,6 +19,8 @@ namespace ProShop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDependencies(Configuration);
+
             services.AddControllers();
         }
 
@@ -36,7 +38,7 @@ namespace ProShop
 
             app.UseAuthorization();
 
-            app.UseGraphiQl("/graphql");
+            app.UseGraphiQLServer();
 
             app.UseEndpoints(endpoints =>
             {
