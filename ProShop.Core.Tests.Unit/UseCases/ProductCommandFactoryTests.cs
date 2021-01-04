@@ -6,6 +6,7 @@ using ProShop.Contract.Requests;
 using ProShop.Core.Tests.Unit.Fakes;
 using ProShop.Core.UseCases;
 using System;
+using System.Collections.Generic;
 
 namespace ProShop.Core.Tests.Unit.UseCases
 {
@@ -31,13 +32,23 @@ namespace ProShop.Core.Tests.Unit.UseCases
         }
 
         [TestMethod]
-        public void Create_with_return_type_should_create_GetProductById_command()
+        public void Create_with_return_type_should_create_GetProductByIdCommand()
         {
             var request = new GetProductByIdRequest();
 
             ICommand<ProductDto> actual = _sut.Create<ProductDto>(request);
             actual.Should().BeOfType(typeof(GetProductByIdCommand));
+        }        
+        
+        [TestMethod]
+        public void Create_with_return_type_should_create_GetAllProductsCommand()
+        {
+            var request = new GetAllProductsRequest();
+
+            ICommand<IEnumerable<ProductDto>> actual = _sut.Create<IEnumerable<ProductDto>>(request);
+            actual.Should().BeOfType(typeof(GetAllProductsCommand));
         }
+
 
         [TestMethod]
         public void Create_with_return_type_should_throw_exception_when_called_with_unsupported_request()

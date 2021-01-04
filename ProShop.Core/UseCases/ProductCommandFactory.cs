@@ -30,6 +30,11 @@ namespace ProShop.Core.UseCases
                         getProductByIdRequest,
                         _productRepo) as ICommand<T>;
 
+                case GetAllProductsRequest getAllProductsRequest:
+                    return new GetAllProductsCommand(
+                        getAllProductsRequest,
+                        _productRepo) as ICommand<T>;
+
                 default:
                     throw new Exception("Unable to create product command.");
             }
