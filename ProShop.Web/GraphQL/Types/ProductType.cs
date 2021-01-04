@@ -1,10 +1,10 @@
 ﻿using GraphQL.Types;
-using ProShop.Core.Models;
+using ProShop.Contract.Dtos;
 
 namespace ProShop.Web.GraphQL.Types
 {
     public class ProductType :
-        ObjectGraphType<Product>
+        ObjectGraphType<ProductDto>
     {
         public ProductType()
         {
@@ -17,7 +17,7 @@ namespace ProShop.Web.GraphQL.Types
             Field(_ => _.Description).Description("Product description.");
             Field(_ => _.Price).Description("Product price.");
             Field(_ => _.QuantityInStock).Description("Product quantity in stock.");
-            Field<ListGraphType<ProductReviewType>>(nameof(Product.Reviews), "Product reviews.");
+            //Field<ListGraphType<ProductReviewType>>(nameof(Product.Reviews), "Product reviews.");
         }
     }
 }

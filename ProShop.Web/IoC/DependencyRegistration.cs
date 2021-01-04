@@ -3,6 +3,7 @@ using GraphQL.Types;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ProShop.Core.Services;
+using ProShop.Core.UseCases;
 using ProShop.Web.GraphQL.Queries;
 using ProShop.Web.GraphQL.Schemas;
 using ProShop.Web.GraphQL.Types;
@@ -42,6 +43,8 @@ namespace ProShop.Web.IoC
             services.AddScoped<IProductRepository, FakeProductRepository>();
             services.AddScoped<IUserRepository, FakeUserRepository>();
             services.AddScoped<IOrderRepository, FakeOrderRepository>();
+
+            services.AddScoped<IProductCommandFactory, ProductCommandFactory>();
         }
 
         private static void RegisterPersistenceDependencies(

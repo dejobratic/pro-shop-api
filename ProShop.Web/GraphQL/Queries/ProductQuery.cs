@@ -1,6 +1,9 @@
 ﻿using GraphQL.Types;
 using Microsoft.Extensions.DependencyInjection;
+using ProShop.Contract.Dtos;
+using ProShop.Contract.Requests;
 using ProShop.Core.Services;
+using ProShop.Core.UseCases;
 using ProShop.Web.Extensions;
 using ProShop.Web.GraphQL.Types;
 
@@ -10,8 +13,8 @@ namespace ProShop.Web.GraphQL.Queries
     {
         private void InitializeProductQuery()
         {
-            var productRepo = _provider
-                .GetRequiredService<IProductRepository>();
+            var commandFactory = _provider
+                .GetRequiredService<IProductCommandFactory>();
 
             FieldAsync<ProductType>(
                 name: "product",
@@ -21,13 +24,17 @@ namespace ProShop.Web.GraphQL.Queries
                 }),
                 resolve: async context =>
                 {
-                    return await productRepo.Get(context.Arguments.GetId());
+                    var request = new GetProductByIdRequest { ProductId = context.Arguments.GetId() };
+                    var command = commandFactory.Create<ProductDto>(request);
+
+                    return await command.Execute();
                 });
 
             FieldAsync<ListGraphType<ProductType>>(
                 name: "products",
                 resolve: async context =>
                 {
+                    var productRepo = _provider.GetRequiredService<IProductRepository>();
                     return await productRepo.GetAll();
                 });
         }

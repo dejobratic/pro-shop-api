@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProShop.Contract;
 using ProShop.Contract.Dtos;
 using ProShop.Contract.Requests;
+using ProShop.Core.Tests.Unit.Fakes;
 using ProShop.Core.UseCases;
 using System;
 
@@ -50,7 +51,8 @@ namespace ProShop.Core.Tests.Unit.UseCases
 
         private void CreateSut()
         {
-            _sut = new ProductCommandFactory();
+            _sut = new ProductCommandFactory(
+                new FakeProductRepository());
         }
     }
 }

@@ -10,6 +10,12 @@ namespace ProShop.Core.UseCases
     {
         private readonly IProductRepository _productRepo;
 
+        public ProductCommandFactory(
+            IProductRepository productRepo)
+        {
+            _productRepo = productRepo;
+        }
+
         public ICommand Create(IRequest request)
         {
             throw new NotImplementedException();
