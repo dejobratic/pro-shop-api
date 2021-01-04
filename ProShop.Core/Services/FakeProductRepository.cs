@@ -21,7 +21,7 @@ namespace ProShop.Core.Services
                         Category = "Electronics",
                         Description = "The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music...",
                         Price = 399.99m,
-                        Quantity = 12,
+                        QuantityInStock = 12,
                         Reviews = new ProductReview[] {}
                     }
                 },
@@ -35,7 +35,7 @@ namespace ProShop.Core.Services
                         Category = "Electronics",
                         Description = "Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience...",
                         Price = 49.99m,
-                        Quantity = 8,
+                        QuantityInStock = 8,
                         Reviews = new ProductReview[] {}
                     }
                 },

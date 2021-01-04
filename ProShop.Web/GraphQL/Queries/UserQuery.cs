@@ -1,8 +1,8 @@
 ﻿using GraphQL.Types;
 using Microsoft.Extensions.DependencyInjection;
 using ProShop.Core.Services;
+using ProShop.Web.Extensions;
 using ProShop.Web.GraphQL.Types;
-using System;
 
 namespace ProShop.Web.GraphQL.Queries
 {
@@ -15,10 +15,13 @@ namespace ProShop.Web.GraphQL.Queries
 
             FieldAsync<UserType>(
                 name: "user",
+                arguments: new QueryArguments(new QueryArgument<NonNullGraphType<IdGraphType>>
+                {
+                    Name = "id"
+                }),
                 resolve: async context =>
                 {
-                    var id = (Guid)context.Arguments["id"];
-                    return await userRepo.Get(id);
+                    return await userRepo.Get(context.Arguments.GetId());
                 });
 
             FieldAsync<ListGraphType<UserType>>(

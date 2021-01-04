@@ -36,7 +36,7 @@ namespace ProShop.Web.Controllers
 
             if (result.Errors?.Count > 0)
             {
-                return BadRequest(result.Errors.Select(e => e.Message));
+                return BadRequest(result.Errors.Select(e => string.Join(" ", e.Message, e.InnerException?.Message)));
             }
 
             return Ok(result.Data);

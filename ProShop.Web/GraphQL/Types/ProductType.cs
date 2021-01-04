@@ -16,7 +16,7 @@ namespace ProShop.Web.GraphQL.Types
             Field(_ => _.Category).Description("Product category.");
             Field(_ => _.Description).Description("Product description.");
             Field(_ => _.Price).Description("Product price.");
-            Field(_ => _.Quantity).Description("Product quantity.");
+            Field(_ => _.QuantityInStock).Description("Product quantity in stock.");
             Field<ListGraphType<ProductReviewType>>(nameof(Product.Reviews), "Product reviews.");
         }
     }
