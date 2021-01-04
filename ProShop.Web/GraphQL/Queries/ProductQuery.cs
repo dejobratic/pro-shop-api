@@ -1,16 +1,18 @@
 ﻿using GraphQL.Types;
+using Microsoft.Extensions.DependencyInjection;
 using ProShop.Core.Services;
 using ProShop.Web.GraphQL.Types;
 using System;
 
 namespace ProShop.Web.GraphQL.Queries
 {
-    public class ProductQuery :
-        ObjectGraphType
+    public partial class RootQuery
     {
-        public ProductQuery(
-            IProductRepository productRepo)
+        private void InitializeProductQuery()
         {
+            var productRepo = _provider
+                .GetRequiredService<IProductRepository>();
+
             FieldAsync<ProductType>(
                 name: "product",
                 resolve: async context =>

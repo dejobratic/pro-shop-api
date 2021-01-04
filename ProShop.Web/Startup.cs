@@ -38,7 +38,8 @@ namespace ProShop
 
             app.UseAuthorization();
 
-            app.UseGraphiQLServer();
+            //app.UseGraphiQLServer();
+            app.UseGraphQLAltair();
 
             app.UseEndpoints(endpoints =>
             {

@@ -5,15 +5,15 @@ using System;
 
 namespace ProShop.Web.GraphQL.Schemas
 {
-    public class ProductSchema :
+    public class RootSchema :
         Schema,
         ISchema
     {
-        public ProductSchema(
+        public RootSchema(
             IServiceProvider provider)
             : base(provider)
         {
-            Query = provider.GetRequiredService<ProductQuery>();
+            Query = provider.GetRequiredService<RootQuery>();
         }
     }
 }

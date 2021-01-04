@@ -2,6 +2,7 @@
 using GraphQL.Types;
 using Microsoft.AspNetCore.Mvc;
 using ProShop.Web.Contract;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ProShop.Web.Controllers
@@ -25,8 +26,6 @@ namespace ProShop.Web.Controllers
         public async Task<IActionResult> Post(
             [FromBody] GraphQLQuery query)
         {
-            var aa = query.Variables.ToInputs();
-
             var result = await _executer.ExecuteAsync(_ =>
             {
                 _.Schema = _schema;
@@ -37,7 +36,7 @@ namespace ProShop.Web.Controllers
 
             if (result.Errors?.Count > 0)
             {
-                return BadRequest();
+                return BadRequest(result.Errors.Select(e => e.Message));
             }
 
             return Ok(result.Data);

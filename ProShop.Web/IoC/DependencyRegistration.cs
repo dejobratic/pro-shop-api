@@ -27,12 +27,13 @@ namespace ProShop.Web.IoC
             services.AddScoped<IDocumentExecuter, DocumentExecuter>();
 
             services.AddScoped<ProductType>();
+            services.AddScoped<ProductReviewType>();
             services.AddScoped<UserType>();
+            services.AddScoped<OrderType>();
 
-            services.AddScoped<ProductQuery>();
-            services.AddScoped<UserQuery>();
+            services.AddScoped<RootQuery>();
 
-            services.AddScoped<ISchema, ProductSchema>();
+            services.AddScoped<ISchema, RootSchema>();
         }
 
         private static void RegisterCoreDependencies(
@@ -40,6 +41,7 @@ namespace ProShop.Web.IoC
         {
             services.AddScoped<IProductRepository, FakeProductRepository>();
             services.AddScoped<IUserRepository, FakeUserRepository>();
+            services.AddScoped<IOrderRepository, FakeOrderRepository>();
         }
 
         private static void RegisterPersistenceDependencies(

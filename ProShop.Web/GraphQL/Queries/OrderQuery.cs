@@ -8,24 +8,24 @@ namespace ProShop.Web.GraphQL.Queries
 {
     public partial class RootQuery
     {
-        private void InitializeUserQuery()
+        private void InitializeOrderQuery()
         {
-            var userRepo = _provider
-                .GetRequiredService<IUserRepository>();
+            var orderRepo = _provider
+                .GetRequiredService<IOrderRepository>();
 
-            FieldAsync<UserType>(
-                name: "user",
+            FieldAsync<OrderType>(
+                name: "order",
                 resolve: async context =>
                 {
                     var id = (Guid)context.Arguments["id"];
-                    return await userRepo.Get(id);
+                    return await orderRepo.Get(id);
                 });
 
-            FieldAsync<ListGraphType<UserType>>(
-                name: "users",
+            FieldAsync<ListGraphType<OrderType>>(
+                name: "orders",
                 resolve: async context =>
                 {
-                    return await userRepo.GetAll();
+                    return await orderRepo.GetAll();
                 });
         }
     }
