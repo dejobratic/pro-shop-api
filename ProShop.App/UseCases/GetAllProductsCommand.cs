@@ -1,13 +1,14 @@
-﻿using ProShop.Contract.Dtos;
+﻿using ProShop.App.Mappers;
+using ProShop.App.Services;
+using ProShop.Contract.Dtos;
 using ProShop.Contract.Requests;
-using ProShop.Core.Mappers;
 using ProShop.Core.Models;
-using ProShop.Core.Services;
+using ProShop.Core.UseCases;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ProShop.Core.UseCases
+namespace ProShop.App.UseCases
 {
     public class GetAllProductsCommand :
         ICommand<IEnumerable<ProductDto>>
@@ -16,7 +17,7 @@ namespace ProShop.Core.UseCases
         private readonly IProductRepository _productRepo;
 
         public GetAllProductsCommand(
-            GetAllProductsRequest request, 
+            GetAllProductsRequest request,
             IProductRepository productRepo)
         {
             _request = request;

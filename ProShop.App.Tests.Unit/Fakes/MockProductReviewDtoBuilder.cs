@@ -1,7 +1,8 @@
 ﻿using ProShop.Contract.Dtos;
+using ProShop.Core.Tests.Unit.Fakes;
 using System;
 
-namespace ProShop.Core.Tests.Unit.Fakes
+namespace ProShop.App.Tests.Unit.Fakes
 {
     public static class MockProductReviewDtoBuilder
     {
@@ -20,7 +21,7 @@ namespace ProShop.Core.Tests.Unit.Fakes
                 Comment = comment,
                 Rating = rating,
                 CreatedAt = createdAt ?? DateTimeProvider.Today,
-                CreatedBy = createdBy ?? MockUserDtoBuilder.Build() 
+                CreatedBy = createdBy ?? MockUserDtoBuilder.Build()
             };
         }
     }

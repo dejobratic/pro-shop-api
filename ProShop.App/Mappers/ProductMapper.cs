@@ -2,7 +2,7 @@
 using ProShop.Core.Models;
 using System.Linq;
 
-namespace ProShop.Core.Mappers
+namespace ProShop.App.Mappers
 {
     public static class ProductMapper
     {

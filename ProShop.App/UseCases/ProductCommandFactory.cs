@@ -1,9 +1,10 @@
-﻿using ProShop.Contract;
+﻿using ProShop.App.Services;
+using ProShop.Contract;
 using ProShop.Contract.Requests;
-using ProShop.Core.Services;
+using ProShop.Core.UseCases;
 using System;
 
-namespace ProShop.Core.UseCases
+namespace ProShop.App.UseCases
 {
     public class ProductCommandFactory :
         IProductCommandFactory

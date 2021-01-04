@@ -1,10 +1,10 @@
-﻿using ProShop.Core.Models;
-using ProShop.Core.Services;
+﻿using ProShop.App.Services;
+using ProShop.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ProShop.Core.Tests.Unit.Fakes
+namespace ProShop.App.Tests.Unit.Fakes
 {
     public class FakeProductRepository :
         IProductRepository

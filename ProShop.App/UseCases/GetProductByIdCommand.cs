@@ -1,11 +1,12 @@
-﻿using ProShop.Contract.Dtos;
+﻿using ProShop.App.Mappers;
+using ProShop.App.Services;
+using ProShop.Contract.Dtos;
 using ProShop.Contract.Requests;
-using ProShop.Core.Mappers;
 using ProShop.Core.Models;
-using ProShop.Core.Services;
+using ProShop.Core.UseCases;
 using System.Threading.Tasks;
 
-namespace ProShop.Core.UseCases
+namespace ProShop.App.UseCases
 {
     public class GetProductByIdCommand :
         ICommand<ProductDto>
@@ -14,7 +15,7 @@ namespace ProShop.Core.UseCases
         private readonly IProductRepository _repo;
 
         public GetProductByIdCommand(
-            GetProductByIdRequest request, 
+            GetProductByIdRequest request,
             IProductRepository repo)
         {
             _request = request;

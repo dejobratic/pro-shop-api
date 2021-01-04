@@ -1,8 +1,9 @@
 ﻿using ProShop.Contract.Dtos;
+using ProShop.Core.Tests.Unit.Fakes;
 using System;
 using System.Linq;
 
-namespace ProShop.Core.Tests.Unit.Fakes
+namespace ProShop.App.Tests.Unit.Fakes
 {
     public static class MockProductDtoBuilder
     {

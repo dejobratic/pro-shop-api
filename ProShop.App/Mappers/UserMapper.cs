@@ -1,7 +1,7 @@
 ﻿using ProShop.Contract.Dtos;
 using ProShop.Core.Models;
 
-namespace ProShop.Core.Mappers
+namespace ProShop.App.Mappers
 {
     public static class UserMapper
     {

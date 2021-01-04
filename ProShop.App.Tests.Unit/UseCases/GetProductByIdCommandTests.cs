@@ -1,9 +1,10 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ProShop.App.Tests.Unit.Fakes;
+using ProShop.App.UseCases;
 using ProShop.Contract.Dtos;
 using ProShop.Contract.Requests;
 using ProShop.Core.Tests.Unit.Fakes;
-using ProShop.Core.UseCases;
 
 namespace ProShop.Core.Tests.Unit.UseCases
 {
