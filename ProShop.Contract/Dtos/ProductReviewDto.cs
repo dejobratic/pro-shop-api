@@ -1,14 +1,14 @@
 ﻿using System;
 
-namespace ProShop.Core.Models
+namespace ProShop.Contract.Dtos
 {
-    public class ProductReview
+    public class ProductReviewDto
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
         public string Comment { get; set; }
         public double Rating { get; set; }
         public DateTime CreatedAt { get; set; }
-        public User CreatedBy { get; set; }
+        public UserDto CreatedBy { get; set; }
     }
 }
