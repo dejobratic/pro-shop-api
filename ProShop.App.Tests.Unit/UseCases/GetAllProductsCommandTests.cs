@@ -26,16 +26,13 @@ namespace ProShop.Core.Tests.Unit.UseCases
         [TestInitialize]
         public void Initialize()
         {
-            _sut = new GetAllProductsCommand(
-                new GetAllProductsRequest(),
-                new FakeProductRepository
-                {
-                    ReturnsMany = new Product[]
-                    {
-                        MockProductBuilder.Build(id: Product1Id),
-                        MockProductBuilder.Build(id: Product2Id),
-                    }
-                });
+            CreateSut();
+        }
+
+        [TestMethod]
+        public void Able_to_create_instance()
+        {
+            _sut.Should().NotBeNull();
         }
 
         [TestMethod]
@@ -49,6 +46,20 @@ namespace ProShop.Core.Tests.Unit.UseCases
             };
 
             actual.Should().BeEquivalentTo(expected);
+        }
+
+        private void CreateSut()
+        {
+            _sut = new GetAllProductsCommand(
+                new GetAllProductsRequest(),
+                new FakeProductRepository
+                {
+                    ReturnsMany = new Product[]
+                    {
+                        MockProductBuilder.Build(id: Product1Id),
+                        MockProductBuilder.Build(id: Product2Id),
+                    }
+                });
         }
     }
 }

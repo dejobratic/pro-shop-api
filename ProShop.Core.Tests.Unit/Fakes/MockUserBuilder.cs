@@ -8,14 +8,14 @@ namespace ProShop.Core.Tests.Unit.Fakes
         public static User Build(
             Guid? id = null,
             string firstName = "FirstName",
-            string lastName = "LastName")
+            string lastName = "LastName",
+            Credentials credentials = null)
         {
-            return new User
-            {
-                Id = id ?? GuidProvider.UserId,
-                FirstName = firstName,
-                LastName = lastName
-            };
+            return new User(
+                id ?? GuidProvider.UserId,
+                firstName,
+                lastName,
+                credentials ?? MockCredentialsBuilder.Build());
         }
     }
 }

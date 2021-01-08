@@ -7,15 +7,14 @@ using ProShop.Contract.Dtos;
 using ProShop.Contract.Requests;
 using ProShop.Core.UseCases;
 using System;
-using System.Collections.Generic;
 
-namespace ProShop.Core.Tests.Unit.UseCases
+namespace ProShop.App.Tests.Unit.UseCases
 {
     [TestClass]
     [TestCategory("Unit")]
-    public class ProductCommandFactoryTests
+    public class UserCommandFactoryTests
     {
-        private ProductCommandFactory _sut;
+        private UserCommandFactory _sut;
 
         [TestInitialize]
         public void Initialize()
@@ -39,21 +38,21 @@ namespace ProShop.Core.Tests.Unit.UseCases
         }
 
         [TestMethod]
-        public void Create_with_return_type_should_create_GetProductByIdCommand()
+        public void Create_with_return_type_should_create_SignInUserCommand()
         {
-            var request = new GetProductByIdRequest();
+            var request = new SignInUserRequest();
 
-            ICommand<ProductDto> actual = _sut.Create<ProductDto>(request);
-            actual.Should().BeOfType(typeof(GetProductByIdCommand));
-        }        
-        
+            ICommand<UserDto> actual = _sut.Create<UserDto>(request);
+            actual.Should().BeOfType(typeof(SignInUserCommand));
+        }
+
         [TestMethod]
-        public void Create_with_return_type_should_create_GetAllProductsCommand()
+        public void Create_with_return_type_should_create_SignUpUserCommand()
         {
-            var request = new GetAllProductsRequest();
+            var request = new SignUpUserRequest();
 
-            ICommand<IEnumerable<ProductDto>> actual = _sut.Create<IEnumerable<ProductDto>>(request);
-            actual.Should().BeOfType(typeof(GetAllProductsCommand));
+            ICommand<UserDto> actual = _sut.Create<UserDto>(request);
+            actual.Should().BeOfType(typeof(SignUpUserCommand));
         }
 
 
@@ -64,13 +63,13 @@ namespace ProShop.Core.Tests.Unit.UseCases
                 => _sut.Create<object>(new object() as IRequest);
 
             action.Should().Throw<Exception>()
-                .WithMessage("Unable to create product command.");
+                .WithMessage("Unable to create user command.");
         }
 
         private void CreateSut()
         {
-            _sut = new ProductCommandFactory(
-                new FakeProductRepository());
+            _sut = new UserCommandFactory(
+                new FakeUserRepository());
         }
     }
 }

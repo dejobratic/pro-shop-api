@@ -1,6 +1,7 @@
 ﻿using ProShop.Core.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ProShop.App.Services
@@ -13,21 +14,19 @@ namespace ProShop.App.Services
             {
                 {
                     new Guid("657D2C04-9FF1-4144-84FA-1D1065B411EB"),
-                    new User
-                    {
-                        Id = new Guid("657D2C04-9FF1-4144-84FA-1D1065B411EB"),
-                        FirstName = "John",
-                        LastName = "Doe"
-                    }
+                    new User(
+                        new Guid("657D2C04-9FF1-4144-84FA-1D1065B411EB"),
+                        "John",
+                        "Doe",
+                        null)
                 },
                 {
                     new Guid("98329125-D18B-462D-82F7-6096BFE32E02"),
-                    new User
-                    {
-                        Id = new Guid("98329125-D18B-462D-82F7-6096BFE32E02"),
-                        FirstName = "Jane",
-                        LastName = "Smith"
-                    }
+                    new User(
+                        new Guid("98329125-D18B-462D-82F7-6096BFE32E02"),
+                        "Jane",
+                        "Smith",
+                        null)
                 }
             };
 
@@ -44,6 +43,11 @@ namespace ProShop.App.Services
         public async Task<IEnumerable<User>> GetAll()
         {
             return await Task.FromResult(_userSet.Values);
+        }
+
+        public async Task<User> GetByEmail(string email)
+        {
+            return await Task.FromResult(_userSet.Values.First());
         }
 
         public Task Update(User entity)

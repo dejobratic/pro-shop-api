@@ -21,6 +21,12 @@ namespace ProShop.Core.Tests.Unit.UseCases
         }
 
         [TestMethod]
+        public void Able_to_create_instance()
+        {
+            _sut.Should().NotBeNull();
+        }
+
+        [TestMethod]
         public void Execute_returns_product_by_id()
         {
             ProductDto actual = _sut.Execute().Result;
