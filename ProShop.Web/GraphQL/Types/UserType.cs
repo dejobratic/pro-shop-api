@@ -1,10 +1,10 @@
 ﻿using GraphQL.Types;
-using ProShop.Core.Models;
+using ProShop.Contract.Dtos;
 
 namespace ProShop.Web.GraphQL.Types
 {
     public class UserType :
-        ObjectGraphType<User>
+        ObjectGraphType<UserDto>
     {
         public UserType()
         {

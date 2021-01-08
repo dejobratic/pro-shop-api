@@ -1,7 +1,8 @@
 ﻿using GraphQL.Types;
 using Microsoft.Extensions.DependencyInjection;
-using ProShop.App.Services;
-using ProShop.Web.Extensions;
+using ProShop.App.UseCases;
+using ProShop.Contract.Dtos;
+using ProShop.Contract.Requests;
 using ProShop.Web.GraphQL.Types;
 
 namespace ProShop.Web.GraphQL.Queries
@@ -10,25 +11,30 @@ namespace ProShop.Web.GraphQL.Queries
     {
         private void InitializeUserQuery()
         {
-            var userRepo = _provider
-                .GetRequiredService<IUserRepository>();
+            var commandFactory = _provider
+                .GetRequiredService<IUserCommandFactory>();
 
             FieldAsync<UserType>(
                 name: "user",
-                arguments: new QueryArguments(new QueryArgument<NonNullGraphType<IdGraphType>>
-                {
-                    Name = "id"
-                }),
+                arguments: new QueryArguments(
+                    new QueryArgument<NonNullGraphType<StringGraphType>>
+                    {
+                        Name = "email"
+                    },
+                    new QueryArgument<NonNullGraphType<StringGraphType>>
+                    {
+                        Name = "password"
+                    }),
                 resolve: async context =>
                 {
-                    return await userRepo.Get(context.Arguments.GetId());
-                });
+                    var request = new SignInUserRequest
+                    {
+                        Email = (string)context.Arguments["email"],
+                        Password = (string)context.Arguments["password"]
+                    };
+                    var command = commandFactory.Create<UserDto>(request);
 
-            FieldAsync<ListGraphType<UserType>>(
-                name: "users",
-                resolve: async context =>
-                {
-                    return await userRepo.GetAll();
+                    return await command.Execute();
                 });
         }
     }

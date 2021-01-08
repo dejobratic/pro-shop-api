@@ -45,6 +45,7 @@ namespace ProShop.Web.IoC
             services.AddScoped<IOrderRepository, FakeOrderRepository>();
 
             services.AddScoped<IProductCommandFactory, ProductCommandFactory>();
+            services.AddScoped<IUserCommandFactory, UserCommandFactory>();
         }
 
         private static void RegisterPersistenceDependencies(

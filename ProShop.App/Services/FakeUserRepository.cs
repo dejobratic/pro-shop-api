@@ -18,7 +18,10 @@ namespace ProShop.App.Services
                         new Guid("657D2C04-9FF1-4144-84FA-1D1065B411EB"),
                         "John",
                         "Doe",
-                        null)
+                        new Credentials(
+                            "john.doe@example.com",
+                            "vewso2w2tKmGDKK/dwAUOMQwJ1vXyBIG",
+                            "1Ql8nRyGoqAa40GRoweHdBdRXz4l3v/O"))
                 },
                 {
                     new Guid("98329125-D18B-462D-82F7-6096BFE32E02"),
@@ -26,7 +29,10 @@ namespace ProShop.App.Services
                         new Guid("98329125-D18B-462D-82F7-6096BFE32E02"),
                         "Jane",
                         "Smith",
-                        null)
+                        new Credentials(
+                            "jane.smith@example.com",
+                            "vewso2w2tKmGDKK/dwAUOMQwJ1vXyBIG",
+                            "1Ql8nRyGoqAa40GRoweHdBdRXz4l3v/O"))
                 }
             };
 
