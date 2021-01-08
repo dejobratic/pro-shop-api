@@ -21,7 +21,6 @@ namespace ProShop.Core.Tests.Unit.Models
                 expectedLastName,
                 expectedCredentials);
 
-            sut.Should().NotBeNull();
             sut.Id.Should().NotBeEmpty();
             sut.FirstName.Should().Be(expectedFirstName);
             sut.LastName.Should().Be(expectedLastName);
@@ -42,7 +41,6 @@ namespace ProShop.Core.Tests.Unit.Models
                 expectedLastName,
                 expectedCredentials);
 
-            sut.Should().NotBeNull();
             sut.Id.Should().Be(expectedId);
             sut.FirstName.Should().Be(expectedFirstName);
             sut.LastName.Should().Be(expectedLastName);

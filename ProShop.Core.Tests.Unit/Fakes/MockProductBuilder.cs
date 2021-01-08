@@ -19,17 +19,15 @@ namespace ProShop.Core.Tests.Unit.Fakes
             if (!reviews.Any())
                 reviews = new[] { MockProductReviewBuilder.Build() };
 
-            return new Product
-            {
-                Id = id ?? GuidProvider.ProductId,
-                Name = name,
-                Brand = brand,
-                Category = category,
-                Description = description,
-                Price = price,
-                QuantityInStock = quantityInStock,
-                Reviews = reviews
-            };
+            return new Product(
+                id ?? GuidProvider.ProductId,
+                name,
+                brand,
+                category,
+                description,
+                price,
+                quantityInStock,
+                reviews);
         }
     }
 }
