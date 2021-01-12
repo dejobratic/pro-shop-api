@@ -9,4 +9,9 @@
     <ProjectReference Include="..\ProShop.Core\ProShop.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Mappers\" />
+    <Folder Include="UseCases\" />
+  </ItemGroup>
+
 </Project>

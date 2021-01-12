@@ -9,6 +9,6 @@ namespace ProShop.Contract.Dtos
         public string Comment { get; set; }
         public double Rating { get; set; }
         public DateTime CreatedAt { get; set; }
-        public UserDto CreatedBy { get; set; }
+        public CustomerDto CreatedBy { get; set; }
     }
 }

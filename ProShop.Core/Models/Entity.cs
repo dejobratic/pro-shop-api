@@ -1,19 +1,52 @@
-﻿using System;
-
-namespace ProShop.Core.Models
+﻿namespace ProShop.Core.Models
 {
-    public class Entity
+    public abstract class Entity<TId>
     {
-        public Guid Id { get; }
+        public TId Id { get; private set; }
 
-        public Entity(
-            Guid id)
+        protected Entity(TId id)
         {
             Id = id;
 
-            // TODO: add validation logic
+            // TODO: validation logic
         }
 
-        // TODO: add equality operator overrides
+        public override bool Equals(object obj)
+        {
+            if (obj is not Entity<TId> other)
+                return false;
+
+            if (ReferenceEquals(this, other))
+                return true;
+
+            if (GetType() != other.GetType())
+                return false;
+
+            if (Id.Equals(default(TId)) || other.Id.Equals(default(TId)))
+                return false;
+
+            return Equals(Id, other.Id);
+        }
+
+        public static bool operator ==(Entity<TId> a, Entity<TId> b)
+        {
+            if (a is null && b is null)
+                return true;
+
+            if (a is null || b is null)
+                return false;
+
+            return a.Equals(b);
+        }
+
+        public static bool operator !=(Entity<TId> a, Entity<TId> b)
+        {
+            return !(a == b);
+        }
+
+        public override int GetHashCode()
+        {
+            return (GetType().ToString() + Id).GetHashCode();
+        }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using GraphQL.Types;
 using Microsoft.Extensions.DependencyInjection;
-using ProShop.App.Services;
-using ProShop.Core.Services;
+using ProShop.Orders.App.Services;
 using ProShop.Web.Extensions;
 using ProShop.Web.GraphQL.Types;
 

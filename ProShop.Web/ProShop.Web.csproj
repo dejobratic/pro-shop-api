@@ -14,8 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProShop.App\ProShop.App.csproj" />
-    <ProjectReference Include="..\ProShop.Core\ProShop.Core.csproj" />
+    <ProjectReference Include="..\ProShop.Orders.App\ProShop.Orders.App.csproj" />
+    <ProjectReference Include="..\ProShop.Products.App\ProShop.Products.App.csproj" />
+    <ProjectReference Include="..\ProShop.Users.App\ProShop.Users.App.csproj" />
   </ItemGroup>
 
 
