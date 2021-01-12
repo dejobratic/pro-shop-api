@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ProShop.Users.App\ProShop.Users.App.csproj" />
-    <ProjectReference Include="..\ProShop.Users.Domain.Tests\ProShop.Users.Domain.Tests.Unit.csproj" />
+    <ProjectReference Include="..\ProShop.Users.Domain.Tests.Unit\ProShop.Users.Domain.Tests.Unit.csproj" />
     <ProjectReference Include="..\ProShop.Users.Domain\ProShop.Users.Domain.csproj" />
   </ItemGroup>
 

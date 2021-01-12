@@ -31,11 +31,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Users.App", "ProSho
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Users.Domain", "ProShop.Users.Domain\ProShop.Users.Domain.csproj", "{61C1A4CB-5FE8-4F44-8440-BE8AA94E0B1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProShop.Products.Domain.Tests.Unit", "ProShop.Products.Domain.Tests\ProShop.Products.Domain.Tests.Unit.csproj", "{2DA2335D-790B-4987-8670-2BD348B92EAE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProShop.Products.Domain.Tests.Unit", "ProShop.Products.Domain.Tests.Unit\ProShop.Products.Domain.Tests.Unit.csproj", "{2DA2335D-790B-4987-8670-2BD348B92EAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProShop.Products.App.Tests.Unit", "ProShop.Products.App.Tests\ProShop.Products.App.Tests.Unit.csproj", "{695B61B8-F35E-4B4A-B926-0F01B4255573}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProShop.Products.App.Tests.Unit", "ProShop.Products.App.Tests.Unit\ProShop.Products.App.Tests.Unit.csproj", "{695B61B8-F35E-4B4A-B926-0F01B4255573}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProShop.Users.Domain.Tests.Unit", "ProShop.Users.Domain.Tests\ProShop.Users.Domain.Tests.Unit.csproj", "{0813E255-6EE7-48E1-A66E-309165779E0F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProShop.Users.Domain.Tests.Unit", "ProShop.Users.Domain.Tests.Unit\ProShop.Users.Domain.Tests.Unit.csproj", "{0813E255-6EE7-48E1-A66E-309165779E0F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProShop.Users.App.Tests.Unit", "ProShop.Users.App.Tests.Unit\ProShop.Users.App.Tests.Unit.csproj", "{0F8DE453-0970-41C3-829B-1096141176AD}"
 EndProject

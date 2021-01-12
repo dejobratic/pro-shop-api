@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="5.10.3" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.1.1" />
     <PackageReference Include="MSTest.TestFramework" Version="2.1.1" />
@@ -14,16 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProShop.App\ProShop.App.csproj" />
-    <ProjectReference Include="..\ProShop.Contract\ProShop.Contract.csproj" />
-    <ProjectReference Include="..\ProShop.Core.Tests.Unit\ProShop.Core.Tests.Unit.csproj" />
-    <ProjectReference Include="..\ProShop.Core\ProShop.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Fakes\" />
-    <Folder Include="Mappers\" />
-    <Folder Include="UseCases\" />
+    <ProjectReference Include="..\ProShop.Products.App\ProShop.Products.App.csproj" />
+    <ProjectReference Include="..\ProShop.Products.Domain.Tests.Unit\ProShop.Products.Domain.Tests.Unit.csproj" />
+    <ProjectReference Include="..\ProShop.Products.Domain\ProShop.Products.Domain.csproj" />
   </ItemGroup>
 
 </Project>
