@@ -1,6 +1,7 @@
-﻿using System;
+﻿using ProShop.Contract.Requests;
+using System;
 
-namespace ProShop.Contract.Requests
+namespace ProShop.Products.Contract.Requests
 {
     public class GetProductByIdRequest :
         IRequest

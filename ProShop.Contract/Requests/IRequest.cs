@@ -1,4 +1,4 @@
-﻿namespace ProShop.Contract
+﻿namespace ProShop.Contract.Requests
 {
     /// <summary>
     /// Marker interface for all requests in current project.

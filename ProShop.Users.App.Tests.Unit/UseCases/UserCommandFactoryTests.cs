@@ -1,11 +1,11 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProShop.Contract;
-using ProShop.Contract.Dtos;
 using ProShop.Contract.Requests;
 using ProShop.Core.UseCases;
 using ProShop.Users.App.Tests.Unit.Fakes;
 using ProShop.Users.App.UseCases;
+using ProShop.Users.Contract.Dtos;
+using ProShop.Users.Contract.Requests;
 using System;
 
 namespace ProShop.Users.App.Tests.Unit.UseCases

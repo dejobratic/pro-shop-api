@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace ProShop.Contract.Dtos
+namespace ProShop.Orders.Contract.Dtos
 {
-    public class UserDto
+    public class CustomerDto
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ProShop.Contract.Dtos
+namespace ProShop.Products.Contract.Dtos
 {
     public class CustomerDto
     {

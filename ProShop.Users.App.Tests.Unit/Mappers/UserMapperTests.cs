@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProShop.Contract.Dtos;
 using ProShop.Users.App.Mappers;
 using ProShop.Users.App.Tests.Unit.Fakes;
+using ProShop.Users.Contract.Dtos;
 using ProShop.Users.Domain.Models;
 using ProShop.Users.Domain.Tests.Unit.Fakes;
 

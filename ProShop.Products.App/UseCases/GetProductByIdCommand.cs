@@ -1,8 +1,8 @@
-﻿using ProShop.Contract.Dtos;
-using ProShop.Contract.Requests;
-using ProShop.Core.UseCases;
+﻿using ProShop.Core.UseCases;
 using ProShop.Products.App.Mappers;
 using ProShop.Products.App.Services;
+using ProShop.Products.Contract.Dtos;
+using ProShop.Products.Contract.Requests;
 using ProShop.Products.Domain.Models;
 using System.Threading.Tasks;
 

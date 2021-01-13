@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ProShop.Contract.Dtos
+namespace ProShop.Products.Contract.Dtos
 {
     public class ProductDto
     {

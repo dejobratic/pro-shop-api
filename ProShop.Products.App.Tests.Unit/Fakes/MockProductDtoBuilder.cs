@@ -1,5 +1,5 @@
-﻿using ProShop.Contract.Dtos;
-using ProShop.Core.Tests.Unit.Helpers;
+﻿using ProShop.Core.Tests.Unit.Helpers;
+using ProShop.Products.Contract.Dtos;
 using System;
 using System.Linq;
 

@@ -1,7 +1,7 @@
-﻿using ProShop.Contract;
-using ProShop.Contract.Requests;
+﻿using ProShop.Contract.Requests;
 using ProShop.Core.UseCases;
 using ProShop.Users.App.Services;
+using ProShop.Users.Contract.Requests;
 using System;
 
 namespace ProShop.Users.App.UseCases

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ProShop.Contract.Dtos
+namespace ProShop.Orders.Contract.Dtos
 {
     public class OrderItemDto
     {

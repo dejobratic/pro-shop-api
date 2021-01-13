@@ -1,8 +1,8 @@
 ﻿using GraphQL.Types;
 using Microsoft.Extensions.DependencyInjection;
-using ProShop.Contract.Dtos;
-using ProShop.Contract.Requests;
 using ProShop.Products.App.UseCases;
+using ProShop.Products.Contract.Dtos;
+using ProShop.Products.Contract.Requests;
 using ProShop.Web.Extensions;
 using ProShop.Web.GraphQL.Types;
 using System.Collections.Generic;

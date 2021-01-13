@@ -15,8 +15,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ProShop.Orders.App\ProShop.Orders.App.csproj" />
+    <ProjectReference Include="..\ProShop.Orders.Contract\ProShop.Orders.Contract.csproj" />
     <ProjectReference Include="..\ProShop.Products.App\ProShop.Products.App.csproj" />
+    <ProjectReference Include="..\ProShop.Products.Contract\ProShop.Products.Contract.csproj" />
     <ProjectReference Include="..\ProShop.Users.App\ProShop.Users.App.csproj" />
+    <ProjectReference Include="..\ProShop.Users.Contract\ProShop.Users.Contract.csproj" />
   </ItemGroup>
 
 

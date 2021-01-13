@@ -1,4 +1,4 @@
-﻿using ProShop.Contract;
+﻿using ProShop.Contract.Requests;
 
 namespace ProShop.Core.UseCases
 {

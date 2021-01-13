@@ -1,4 +1,4 @@
-﻿using ProShop.Contract.Dtos;
+﻿using ProShop.Users.Contract.Dtos;
 using ProShop.Users.Domain.Models;
 
 namespace ProShop.Users.App.Mappers

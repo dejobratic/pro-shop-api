@@ -1,5 +1,5 @@
-﻿using ProShop.Contract.Dtos;
-using ProShop.Core.Tests.Unit.Helpers;
+﻿using ProShop.Core.Tests.Unit.Helpers;
+using ProShop.Users.Contract.Dtos;
 using System;
 
 namespace ProShop.Users.App.Tests.Unit.Fakes

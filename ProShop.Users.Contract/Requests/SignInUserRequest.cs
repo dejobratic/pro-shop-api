@@ -1,4 +1,6 @@
-﻿namespace ProShop.Contract.Requests
+﻿using ProShop.Contract.Requests;
+
+namespace ProShop.Users.Contract.Requests
 {
     public class SignInUserRequest :
         IRequest
