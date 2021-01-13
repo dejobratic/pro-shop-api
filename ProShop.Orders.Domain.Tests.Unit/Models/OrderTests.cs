@@ -15,11 +15,15 @@ namespace ProShop.Orders.Domain.Tests.Unit.Models
         {
             var expectedId = Guid.NewGuid();
             var expectedItems = new[] { MockOrderItemBuilder.Build() };
+            var expectedShippingAddress = MockAddressBuilder.Build();
+            var expectedPymentInfo = MockPaymentBuilder.Build();
             var expectedCustomer = MockCustomerBuilder.Build();
 
             var sut = new Order(
                 expectedId,
                 expectedItems,
+                expectedShippingAddress,
+                expectedPymentInfo,
                 expectedCustomer);
 
             sut.Id.Should().Be(expectedId);

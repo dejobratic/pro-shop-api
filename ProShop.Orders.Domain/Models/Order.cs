@@ -8,15 +8,21 @@ namespace ProShop.Orders.Domain.Models
         Entity<Guid>
     {
         public IEnumerable<OrderItem> Items { get; }
+        public Address ShippingAddress { get; }
+        public Payment Payment { get; }
         public Customer Customer { get; }
 
         public Order(
             Guid id,
             IEnumerable<OrderItem> items,
+            Address shippingAddress,
+            Payment payment,
             Customer customer)
             : base(id)
         {
             Items = items;
+            ShippingAddress = shippingAddress;
+            Payment = payment;
             Customer = customer;
         }
     }

@@ -8,11 +8,13 @@ namespace ProShop.Orders.Domain.Tests.Unit.Fakes
     {
         public static OrderItem Build(
             Guid? id = null,
+            Product product = null,
             int quantity = 10,
             decimal price = 0.99m)
         {
             return new OrderItem(
                 id ?? GuidProvider.OrderItemId,
+                product ?? MockProductBuilder.Build(),
                 quantity,
                 price);
         }
