@@ -7,5 +7,8 @@ namespace ProShop.Orders.Contract.Dtos
     {
         public Guid Id { get; set; }
         public IEnumerable<OrderItemDto> Items { get; set; }
+        public AddressDto ShippingAddress { get; set; }
+        public PaymentDto Payment { get; set; }
+        public CustomerDto Customer { get; set; }
     }
 }

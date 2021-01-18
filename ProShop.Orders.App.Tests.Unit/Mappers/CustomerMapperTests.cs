@@ -1,12 +1,12 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProShop.Products.App.Mappers;
-using ProShop.Products.App.Tests.Unit.Fakes;
-using ProShop.Products.Contract.Dtos;
-using ProShop.Products.Domain.Models;
-using ProShop.Products.Domain.Tests.Unit.Fakes;
+using ProShop.Orders.App.Mappers;
+using ProShop.Orders.App.Tests.Unit.Fakes;
+using ProShop.Orders.Contract.Dtos;
+using ProShop.Orders.Domain.Models;
+using ProShop.Orders.Domain.Tests.Unit.Fakes;
 
-namespace ProShop.Products.App.Tests.Unit.Mappers
+namespace ProShop.Orders.App.Tests.Unit.Mappers
 {
     [TestClass]
     [TestCategory("Unit")]

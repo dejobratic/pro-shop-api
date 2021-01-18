@@ -2,21 +2,20 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProShop.Contract.Requests;
 using ProShop.Core.UseCases;
-using ProShop.Products.App.Services;
-using ProShop.Products.App.Tests.Unit.Fakes;
-using ProShop.Products.App.UseCases;
-using ProShop.Products.Contract.Dtos;
-using ProShop.Products.Contract.Requests;
+using ProShop.Orders.App.Tests.Unit.Fakes;
+using ProShop.Orders.App.UseCases;
+using ProShop.Orders.Contract.Dtos;
+using ProShop.Orders.Contract.Requests;
 using System;
 using System.Collections.Generic;
 
-namespace ProShop.Products.App.Tests.Unit.UseCases
+namespace ProShop.Orders.App.Tests.Unit.UseCases
 {
     [TestClass]
     [TestCategory("Unit")]
-    public class ProductCommandFactoryTests
+    public class OrderCommandFactoryTests
     {
-        private ProductCommandFactory _sut;
+        private OrderCommandFactory _sut;
 
         [TestInitialize]
         public void Initialize()
@@ -40,21 +39,21 @@ namespace ProShop.Products.App.Tests.Unit.UseCases
         }
 
         [TestMethod]
-        public void Create_with_return_type_should_create_GetProductByIdCommand()
+        public void Create_with_return_type_should_create_GetOrderByIdCommand()
         {
-            var request = new GetProductByIdRequest();
+            var request = new GetOrderByIdRequest();
 
-            ICommand<ProductDto> actual = _sut.Create<ProductDto>(request);
-            actual.Should().BeOfType(typeof(GetProductByIdCommand));
+            ICommand<OrderDto> actual = _sut.Create<OrderDto>(request);
+            actual.Should().BeOfType(typeof(GetOrderByIdCommand));
         }
 
         [TestMethod]
-        public void Create_with_return_type_should_create_GetAllProductsCommand()
+        public void Create_with_return_type_should_create_GetOrdersByCustomerIdCommand()
         {
-            var request = new GetAllProductsRequest();
+            var request = new GetOrdersByCustomerIdRequest();
 
-            ICommand<IEnumerable<ProductDto>> actual = _sut.Create<IEnumerable<ProductDto>>(request);
-            actual.Should().BeOfType(typeof(GetAllProductsCommand));
+            ICommand<IEnumerable<OrderDto>> actual = _sut.Create<IEnumerable<OrderDto>>(request);
+            actual.Should().BeOfType(typeof(GetOrdersByCustomerIdCommand));
         }
 
 
@@ -65,13 +64,13 @@ namespace ProShop.Products.App.Tests.Unit.UseCases
                 => _sut.Create<object>(new object() as IRequest);
 
             action.Should().Throw<Exception>()
-                .WithMessage("Unable to create product command.");
+                .WithMessage("Unable to create order command.");
         }
 
         private void CreateSut()
         {
-            _sut = new ProductCommandFactory(
-                new FakeProductRepository());
+            _sut = new OrderCommandFactory(
+                new FakeOrderRepository());
         }
     }
 }

@@ -4,7 +4,7 @@ using ProShop.Products.App.UseCases;
 using ProShop.Products.Contract.Dtos;
 using ProShop.Products.Contract.Requests;
 using ProShop.Web.Extensions;
-using ProShop.Web.GraphQL.Types;
+using ProShop.Web.GraphQL.Types.Products;
 using System.Collections.Generic;
 
 namespace ProShop.Web.GraphQL.Queries
@@ -24,7 +24,7 @@ namespace ProShop.Web.GraphQL.Queries
                 }),
                 resolve: async context =>
                 {
-                    var request = new GetProductByIdRequest { ProductId = context.Arguments.GetId() };
+                    var request = new GetProductByIdRequest { ProductId = context.Arguments.GetGuid() };
                     var command = commandFactory.Create<ProductDto>(request);
 
                     return await command.Execute();

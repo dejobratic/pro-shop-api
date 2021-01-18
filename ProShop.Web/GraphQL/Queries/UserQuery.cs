@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ProShop.Users.App.UseCases;
 using ProShop.Users.Contract.Dtos;
 using ProShop.Users.Contract.Requests;
-using ProShop.Web.GraphQL.Types;
+using ProShop.Web.GraphQL.Types.Users;
 
 namespace ProShop.Web.GraphQL.Queries
 {

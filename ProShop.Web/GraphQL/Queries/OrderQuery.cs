@@ -1,8 +1,11 @@
 ﻿using GraphQL.Types;
 using Microsoft.Extensions.DependencyInjection;
-using ProShop.Orders.App.Services;
+using ProShop.Orders.App.UseCases;
+using ProShop.Orders.Contract.Dtos;
+using ProShop.Orders.Contract.Requests;
 using ProShop.Web.Extensions;
-using ProShop.Web.GraphQL.Types;
+using ProShop.Web.GraphQL.Types.Orders;
+using System.Collections.Generic;
 
 namespace ProShop.Web.GraphQL.Queries
 {
@@ -10,8 +13,8 @@ namespace ProShop.Web.GraphQL.Queries
     {
         private void InitializeOrderQuery()
         {
-            var orderRepo = _provider
-                .GetRequiredService<IOrderRepository>();
+            var commandFactory = _provider
+                .GetRequiredService<IOrderCommandFactory>();
 
             FieldAsync<OrderType>(
                 name: "order",
@@ -21,14 +24,24 @@ namespace ProShop.Web.GraphQL.Queries
                 }),
                 resolve: async context =>
                 {
-                    return await orderRepo.Get(context.Arguments.GetId());
+                    var request = new GetOrderByIdRequest { OrderId = context.Arguments.GetGuid("id") };
+                    var command = commandFactory.Create<OrderDto>(request);
+
+                    return await command.Execute();
                 });
 
             FieldAsync<ListGraphType<OrderType>>(
-                name: "orders",
+                name: "ordersByCustomerId",
+                arguments: new QueryArguments(new QueryArgument<NonNullGraphType<IdGraphType>>
+                {
+                    Name = "customerId"
+                }),
                 resolve: async context =>
                 {
-                    return await orderRepo.GetAll();
+                    var request = new GetOrdersByCustomerIdRequest { CustomerId = context.Arguments.GetGuid("customerId") };
+                    var command = commandFactory.Create<IEnumerable<OrderDto>>(request);
+
+                    return await command.Execute();
                 });
         }
     }

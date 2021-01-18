@@ -18,7 +18,7 @@ namespace ProShop.Products.Domain.Tests.Unit.Models
             var expectedComment = "Comment";
             var expectedRating = 4.5;
             var expectedCreatedAt = DateTime.UtcNow;
-            var expectedCreatedBy = MockProductReviewerBuilder.Build();
+            var expectedCreatedBy = MockCustomerBuilder.Build();
 
             var sut = new ProductReview(
                 expectedId,

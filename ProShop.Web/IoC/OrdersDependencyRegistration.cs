@@ -1,39 +1,40 @@
-﻿using GraphQL;
-using GraphQL.Types;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ProShop.Web.GraphQL.Queries;
-using ProShop.Web.GraphQL.Schemas;
+using ProShop.Orders.App.Services;
+using ProShop.Orders.App.UseCases;
+using ProShop.Web.GraphQL.Types.Orders;
 
 namespace ProShop.Web.IoC
 {
-    public static class DependencyRegistration
+    public static class OrdersDependencyRegistration
     {
         public static void AddDependencies(
-            this IServiceCollection services,
+            IServiceCollection services,
             IConfiguration configuration)
         {
             RegisterGraphQlDependencies(services, configuration);
             RegisterCoreDependencies(services, configuration);
             RegisterPersistenceDependencies(services, configuration);
-
-            ProductsDependencyRegistration.AddDependencies(services, configuration);
-            OrdersDependencyRegistration.AddDependencies(services, configuration);
-            UsersDependencyRegistration.AddDependencies(services, configuration);
         }
 
         private static void RegisterGraphQlDependencies(
-            IServiceCollection services, 
+            IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddScoped<RootQuery>();
-            services.AddScoped<ISchema, RootSchema>();
-            services.AddScoped<IDocumentExecuter, DocumentExecuter>();
+            services.AddScoped<OrderType>();
+            services.AddScoped<OrderItemType>();
+            services.AddScoped<ProductType>();;
+            services.AddScoped<AddressType>();
+            services.AddScoped<PaymentType>();
+            services.AddScoped<CustomerType>();
         }
 
         private static void RegisterCoreDependencies(
             IServiceCollection services, IConfiguration configuration)
         {
+            services.AddScoped<IOrderRepository, DummyOrderRepository>();
+
+            services.AddScoped<IOrderCommandFactory, OrderCommandFactory>();
         }
 
         private static void RegisterPersistenceDependencies(

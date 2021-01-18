@@ -1,7 +1,7 @@
 ﻿using GraphQL.Types;
 using ProShop.Products.Contract.Dtos;
 
-namespace ProShop.Web.GraphQL.Types
+namespace ProShop.Web.GraphQL.Types.Products
 {
     public class ProductType :
         ObjectGraphType<ProductDto>

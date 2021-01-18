@@ -1,7 +1,7 @@
 ﻿using GraphQL.Types;
 using ProShop.Users.Contract.Dtos;
 
-namespace ProShop.Web.GraphQL.Types
+namespace ProShop.Web.GraphQL.Types.Users
 {
     public class UserType :
         ObjectGraphType<UserDto>

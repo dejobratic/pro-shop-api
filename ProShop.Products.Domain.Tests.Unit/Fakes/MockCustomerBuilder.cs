@@ -4,7 +4,7 @@ using System;
 
 namespace ProShop.Products.Domain.Tests.Unit.Fakes
 {
-    public static class MockProductReviewerBuilder
+    public static class MockCustomerBuilder
     {
         public static Customer Build(
             Guid? id = null,

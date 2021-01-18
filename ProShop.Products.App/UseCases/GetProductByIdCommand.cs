@@ -12,19 +12,19 @@ namespace ProShop.Products.App.UseCases
         ICommand<ProductDto>
     {
         private readonly GetProductByIdRequest _request;
-        private readonly IProductRepository _repo;
+        private readonly IProductRepository _productRepo;
 
         public GetProductByIdCommand(
             GetProductByIdRequest request,
-            IProductRepository repo)
+            IProductRepository productRepo)
         {
             _request = request;
-            _repo = repo;
+            _productRepo = productRepo;
         }
 
         public async Task<ProductDto> Execute()
         {
-            Product product = await _repo.Get(_request.ProductId);
+            Product product = await _productRepo.Get(_request.ProductId);
             return product.ToContractModel();
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ProShop.Orders.Contract.Dtos
 {
@@ -7,5 +8,6 @@ namespace ProShop.Orders.Contract.Dtos
         public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public IEnumerable<OrderDto> Orders { get; set; }
     }
 }

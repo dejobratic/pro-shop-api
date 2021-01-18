@@ -8,8 +8,4 @@
     <ProjectReference Include="..\ProShop.Contract\ProShop.Contract.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Requests\" />
-  </ItemGroup>
-
 </Project>

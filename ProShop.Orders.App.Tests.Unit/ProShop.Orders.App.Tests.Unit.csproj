@@ -13,4 +13,11 @@
     <PackageReference Include="coverlet.collector" Version="1.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProShop.Orders.App\ProShop.Orders.App.csproj" />
+    <ProjectReference Include="..\ProShop.Orders.Contract\ProShop.Orders.Contract.csproj" />
+    <ProjectReference Include="..\ProShop.Orders.Domain.Tests.Unit\ProShop.Orders.Domain.Tests.Unit.csproj" />
+    <ProjectReference Include="..\ProShop.Orders.Domain\ProShop.Orders.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

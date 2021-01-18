@@ -1,6 +1,7 @@
 ﻿using ProShop.Orders.Domain.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ProShop.Orders.App.Services
@@ -88,6 +89,12 @@ namespace ProShop.Orders.App.Services
         public async Task<IEnumerable<Order>> GetAll()
         {
             return await Task.FromResult(_orderSet.Values);
+        }
+
+        public async Task<IEnumerable<Order>> GetByCustomerId(Guid customerId)
+        {
+            var orders = _orderSet.Values.Where(o => o.Customer.Id == customerId);
+            return await Task.FromResult(orders);
         }
 
         public Task Update(Order entity)

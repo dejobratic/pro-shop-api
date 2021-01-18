@@ -20,7 +20,7 @@ namespace ProShop.Products.Domain.Tests.Unit.Fakes
                 comment,
                 rating,
                 createdAt ?? DateTimeProvider.Today,
-                createdBy ?? MockProductReviewerBuilder.Build());
+                createdBy ?? MockCustomerBuilder.Build());
         }
     }
 }
