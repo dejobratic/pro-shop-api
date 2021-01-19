@@ -12,7 +12,7 @@ namespace ProShop.Orders.Domain.Tests.Unit.Models
         [TestMethod]
         public void Able_to_create_instance()
         {
-            var expectedMethod = "Method";
+            var expectedMethod = PaymentMethod.PayPal;
             var expectedIsCompleted = true;
             var expectedCompletedAt = DateTimeProvider.Today;
 
@@ -20,6 +20,21 @@ namespace ProShop.Orders.Domain.Tests.Unit.Models
                 expectedMethod,
                 expectedIsCompleted,
                 expectedCompletedAt);
+
+            sut.Method.Should().Be(expectedMethod);
+            sut.IsCompleted.Should().Be(expectedIsCompleted);
+            sut.CompletedAt.Should().Be(expectedCompletedAt);
+        }
+
+        [TestMethod]
+        public void Able_to_create_instance_with_payment_method_only()
+        {
+            var expectedMethod = PaymentMethod.PayPal;
+            var expectedIsCompleted = false;
+            var expectedCompletedAt = DateTimeProvider.MinValue;
+
+            var sut = new Payment(
+                expectedMethod);
 
             sut.Method.Should().Be(expectedMethod);
             sut.IsCompleted.Should().Be(expectedIsCompleted);

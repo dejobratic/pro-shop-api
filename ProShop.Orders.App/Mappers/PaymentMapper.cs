@@ -10,7 +10,7 @@ namespace ProShop.Orders.App.Mappers
         {
             return new PaymentDto
             {
-                Method = payment.Method,
+                Method = payment.Method.ToString(),
                 IsCompleted = payment.IsCompleted,
                 CompletedAt = payment.CompletedAt
             };

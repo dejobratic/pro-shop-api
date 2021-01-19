@@ -6,5 +6,8 @@ namespace ProShop.Core.Tests.Unit.Helpers
     {
         public static readonly DateTime Today
             = DateTime.UtcNow.Date;
+
+        public static readonly DateTime MinValue
+            = DateTime.MinValue;
     }
 }

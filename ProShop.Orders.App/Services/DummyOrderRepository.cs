@@ -34,7 +34,7 @@ namespace ProShop.Orders.App.Services
                             "94304",
                             "US"),
                         new Payment(
-                            "PayPal",
+                            PaymentMethod.PayPal,
                             true,
                             DateTime.UtcNow),
                         new Customer(
@@ -65,7 +65,7 @@ namespace ProShop.Orders.App.Services
                             "95014",
                             "US"),
                         new Payment(
-                            "PayPal",
+                            PaymentMethod.PayPal,
                             true,
                             DateTime.UtcNow),
                         new Customer(

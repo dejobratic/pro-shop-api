@@ -4,18 +4,18 @@ namespace ProShop.Orders.Domain.Models
 {
     public class Payment
     {
-        public string Method { get; }
+        public PaymentMethod Method { get; }
         public bool IsCompleted { get; }
         public DateTime CompletedAt { get; }
 
         public Payment(
-            string method, 
-            bool isCompleted, 
-            DateTime completedAt)
+            PaymentMethod method, 
+            bool isCompleted = false, 
+            DateTime? completedAt = null)
         {
             Method = method;
             IsCompleted = isCompleted;
-            CompletedAt = completedAt;
+            CompletedAt = completedAt ?? DateTime.MinValue;
         }
 
     }

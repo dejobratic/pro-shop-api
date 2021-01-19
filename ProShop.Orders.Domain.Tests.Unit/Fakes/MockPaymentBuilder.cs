@@ -7,7 +7,7 @@ namespace ProShop.Orders.Domain.Tests.Unit.Fakes
     public static class MockPaymentBuilder
     {
         public static Payment Build(
-            string method = "Method",
+            PaymentMethod method = PaymentMethod.PayPal,
             bool isCompleted = true,
             DateTime? completedAt = null)
         {
