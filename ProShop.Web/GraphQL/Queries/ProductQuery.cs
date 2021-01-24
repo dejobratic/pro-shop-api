@@ -1,10 +1,11 @@
-﻿using GraphQL.Types;
+﻿using GraphQL;
+using GraphQL.Types;
 using Microsoft.Extensions.DependencyInjection;
 using ProShop.Shopping.App.UseCases;
 using ProShop.Shopping.Contract.Dtos;
 using ProShop.Shopping.Contract.Requests;
-using ProShop.Web.Extensions;
-using ProShop.Web.GraphQL.Queries.Types.Products;
+using ProShop.Web.GraphQL.Types.Shopping;
+using System;
 using System.Collections.Generic;
 
 namespace ProShop.Web.GraphQL.Queries
@@ -24,7 +25,7 @@ namespace ProShop.Web.GraphQL.Queries
                 }),
                 resolve: async context =>
                 {
-                    var request = new GetProductByIdRequest { ProductId = context.Arguments.GetGuid() };
+                    var request = new GetProductByIdRequest { ProductId = context.GetArgument<Guid>("id") };
                     var command = commandFactory.Create<ProductDto>(request);
 
                     return await command.Execute();

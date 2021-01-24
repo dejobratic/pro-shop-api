@@ -1,11 +1,11 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProShop.Contract.Requests;
-using ProShop.Core.UseCases;
 using ProShop.Auth.App.Tests.Unit.Fakes;
 using ProShop.Auth.App.UseCases;
 using ProShop.Auth.Contract.Dtos;
 using ProShop.Auth.Contract.Requests;
+using ProShop.Contract.Requests;
+using ProShop.Core.UseCases;
 using System;
 
 namespace ProShop.Auth.App.Tests.Unit.UseCases
@@ -69,7 +69,8 @@ namespace ProShop.Auth.App.Tests.Unit.UseCases
         private void CreateSut()
         {
             _sut = new UserCommandFactory(
-                new FakeUserRepository());
+                new FakeUserRepository(),
+                new FakeTokenGenerator());
         }
     }
 }

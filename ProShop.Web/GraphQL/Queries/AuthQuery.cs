@@ -4,27 +4,26 @@ using Microsoft.Extensions.DependencyInjection;
 using ProShop.Auth.App.UseCases;
 using ProShop.Auth.Contract.Dtos;
 using ProShop.Auth.Contract.Requests;
-using ProShop.Web.GraphQL.Mutations.Types.Auth;
 using ProShop.Web.GraphQL.Types.Auth;
 
-namespace ProShop.Web.GraphQL.Mutations
+namespace ProShop.Web.GraphQL.Queries
 {
-    public partial class RootMutation
+    public partial class RootQuery
     {
-        private void InitializeUserMutation()
+        private void InitializeAuthQuery()
         {
             var commandFactory = _provider
                 .GetRequiredService<IUserCommandFactory>();
 
             FieldAsync<UserType>(
-                name: "signUpUser",
-                arguments: new QueryArguments(new QueryArgument<NonNullGraphType<SignUpUserType>>
+                name: "signInUser",
+                arguments: new QueryArguments(new QueryArgument<NonNullGraphType<SignInUserType>>
                 {
                     Name = "user"
                 }),
                 resolve: async context =>
                 {
-                    var request = context.GetArgument<SignUpUserRequest>("user");
+                    var request = context.GetArgument<SignInUserRequest>("user");
                     var command = commandFactory.Create<UserDto>(request);
 
                     return await command.Execute();

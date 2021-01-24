@@ -1,7 +1,7 @@
-﻿using ProShop.Contract.Requests;
-using ProShop.Core.UseCases;
-using ProShop.Auth.App.Services;
+﻿using ProShop.Auth.App.Services;
 using ProShop.Auth.Contract.Requests;
+using ProShop.Contract.Requests;
+using ProShop.Core.UseCases;
 using System;
 
 namespace ProShop.Auth.App.UseCases
@@ -10,11 +10,14 @@ namespace ProShop.Auth.App.UseCases
         IUserCommandFactory
     {
         private readonly IUserRepository _userRepo;
+        private readonly ITokenGenerator _tokenGenerator;
 
         public UserCommandFactory(
-            IUserRepository userRepo)
+            IUserRepository userRepo, 
+            ITokenGenerator tokenGenerator)
         {
             _userRepo = userRepo;
+            _tokenGenerator = tokenGenerator;
         }
 
         public ICommand Create(IRequest request)
@@ -29,12 +32,14 @@ namespace ProShop.Auth.App.UseCases
                 case SignInUserRequest signInUserRequest:
                     return new SignInUserCommand(
                         signInUserRequest,
-                        _userRepo) as ICommand<T>;
+                        _userRepo,
+                        _tokenGenerator) as ICommand<T>;
 
                 case SignUpUserRequest signUpUserRequest:
                     return new SignUpUserCommand(
                         signUpUserRequest,
-                        _userRepo) as ICommand<T>;
+                        _userRepo,
+                        _tokenGenerator) as ICommand<T>;
 
                 default:
                     throw new Exception("Unable to create user command.");

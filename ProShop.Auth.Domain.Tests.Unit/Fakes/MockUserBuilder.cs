@@ -1,6 +1,7 @@
-﻿using ProShop.Core.Tests.Unit.Helpers;
-using ProShop.Auth.Domain.Models;
+﻿using ProShop.Auth.Domain.Models;
+using ProShop.Core.Tests.Unit.Helpers;
 using System;
+using System.Linq;
 
 namespace ProShop.Auth.Domain.Tests.Unit.Fakes
 {
@@ -10,13 +11,18 @@ namespace ProShop.Auth.Domain.Tests.Unit.Fakes
             Guid? id = null,
             string firstName = "FirstName",
             string lastName = "LastName",
-            UserCredentials credentials = null)
+            UserCredentials credentials = null,
+            params Role[] roles)
         {
+            if (!roles.Any())
+                roles = new[] { Role.Customer };
+
             return new User(
                 id ?? GuidProvider.UserId,
                 firstName,
                 lastName,
-                credentials ?? MockUserCredentialsBuilder.Build());
+                credentials ?? MockUserCredentialsBuilder.Build(),
+                roles);
         }
     }
 }

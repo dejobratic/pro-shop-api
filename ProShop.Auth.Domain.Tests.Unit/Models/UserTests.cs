@@ -14,7 +14,10 @@ namespace ProShop.Auth.Domain.Tests.Unit.Models
         {
             var expectedFirstName = "FirstName";
             var expectedLastName = "LastName";
-            var expectedCredentials = new UserCredentials("", "");
+            var expectedCredentials = new UserCredentials(
+                "vewso2w2tKmGDKK/dwAUOMQwJ1vXyBIG",
+                "1Ql8nRyGoqAa40GRoweHdBdRXz4l3v/O");
+            var expectedRoles = new[] { Role.Customer };
 
             var sut = new User(
                 expectedFirstName,
@@ -25,6 +28,7 @@ namespace ProShop.Auth.Domain.Tests.Unit.Models
             sut.FirstName.Should().Be(expectedFirstName);
             sut.LastName.Should().Be(expectedLastName);
             sut.Credentials.Should().Be(expectedCredentials);
+            sut.Roles.Should().BeEquivalentTo(expectedRoles);
         }
 
         [TestMethod]
@@ -33,18 +37,23 @@ namespace ProShop.Auth.Domain.Tests.Unit.Models
             var expectedId = Guid.NewGuid();
             var expectedFirstName = "FirstName";
             var expectedLastName = "LastName";
-            var expectedCredentials = new UserCredentials("", "");
+            var expectedCredentials = new UserCredentials(
+                "vewso2w2tKmGDKK/dwAUOMQwJ1vXyBIG",
+                "1Ql8nRyGoqAa40GRoweHdBdRXz4l3v/O");
+            var expectedRoles = new[] { Role.Admin };
 
             var sut = new User(
                 expectedId,
                 expectedFirstName,
                 expectedLastName,
-                expectedCredentials);
+                expectedCredentials,
+                expectedRoles);
 
             sut.Id.Should().Be(expectedId);
             sut.FirstName.Should().Be(expectedFirstName);
             sut.LastName.Should().Be(expectedLastName);
             sut.Credentials.Should().Be(expectedCredentials);
+            sut.Roles.Should().BeEquivalentTo(expectedRoles);
         }
     }
 }

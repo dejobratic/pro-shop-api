@@ -1,7 +1,7 @@
 ﻿using GraphQL;
 using GraphQL.Types;
 using Microsoft.AspNetCore.Mvc;
-using ProShop.Web.Contract;
+using ProShop.Web.GraphQL;
 using System.Linq;
 using System.Threading.Tasks;
 

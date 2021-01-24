@@ -1,10 +1,11 @@
-﻿using ProShop.Core.Exceptions;
-using ProShop.Core.UseCases;
+﻿using ProShop.Auth.App.Extensions;
 using ProShop.Auth.App.Mappers;
 using ProShop.Auth.App.Services;
 using ProShop.Auth.Contract.Dtos;
 using ProShop.Auth.Contract.Requests;
 using ProShop.Auth.Domain.Models;
+using ProShop.Core.Exceptions;
+using ProShop.Core.UseCases;
 using System.Threading.Tasks;
 
 namespace ProShop.Auth.App.UseCases
@@ -14,13 +15,16 @@ namespace ProShop.Auth.App.UseCases
     {
         private readonly SignUpUserRequest _request;
         private readonly IUserRepository _userRepo;
+        private readonly ITokenGenerator _tokenGenerator;
 
         public SignUpUserCommand(
             SignUpUserRequest request,
-            IUserRepository userRepo)
+            IUserRepository userRepo, 
+            ITokenGenerator tokenGenerator)
         {
             _request = request;
             _userRepo = userRepo;
+            _tokenGenerator = tokenGenerator;
         }
 
         public async Task<UserDto> Execute()
@@ -30,7 +34,8 @@ namespace ProShop.Auth.App.UseCases
             User user = CreateUser();
             await _userRepo.Add(user);
 
-            return user.ToContractModel();
+            var token = _tokenGenerator.Generate(user);
+            return user.ToContractModel().WithToken(token);
         }
 
         private async Task ThrowIfUserAlreadyExists()

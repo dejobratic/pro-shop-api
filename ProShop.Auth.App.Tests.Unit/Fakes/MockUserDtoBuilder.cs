@@ -1,5 +1,5 @@
-﻿using ProShop.Core.Tests.Unit.Helpers;
-using ProShop.Auth.Contract.Dtos;
+﻿using ProShop.Auth.Contract.Dtos;
+using ProShop.Core.Tests.Unit.Helpers;
 using System;
 
 namespace ProShop.Auth.App.Tests.Unit.Fakes
@@ -10,14 +10,16 @@ namespace ProShop.Auth.App.Tests.Unit.Fakes
             Guid? id = null,
             string firstName = "FirstName",
             string lastName = "LastName",
-            string email = "FirstName.LastName@example.com")
+            string email = "FirstName.LastName@example.com",
+            TokenDto token = null)
         {
             return new UserDto
             {
                 Id = id ?? GuidProvider.UserId,
                 FirstName = firstName,
                 LastName = lastName,
-                Email = email
+                Email = email,
+                Token = token
             };
         }
     }

@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.8.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ProShop.Auth.Contract\ProShop.Auth.Contract.csproj" />
     <ProjectReference Include="..\ProShop.Auth.Domain\ProShop.Auth.Domain.csproj" />
   </ItemGroup>

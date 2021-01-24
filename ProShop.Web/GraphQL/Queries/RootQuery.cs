@@ -16,7 +16,7 @@ namespace ProShop.Web.GraphQL.Queries
             Name = "RootQuery";
 
             InitializeProductQuery();
-            InitializeUserQuery();
+            InitializeAuthQuery();
             InitializeOrderQuery();
         }
     }

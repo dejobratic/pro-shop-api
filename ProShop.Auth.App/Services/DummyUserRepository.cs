@@ -1,5 +1,5 @@
-﻿using ProShop.Core.Exceptions;
-using ProShop.Auth.Domain.Models;
+﻿using ProShop.Auth.Domain.Models;
+using ProShop.Core.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +22,8 @@ namespace ProShop.Auth.App.Services
                         new UserCredentials(
                             "john.doe@example.com",
                             "vewso2w2tKmGDKK/dwAUOMQwJ1vXyBIG",
-                            "1Ql8nRyGoqAa40GRoweHdBdRXz4l3v/O"))
+                            "1Ql8nRyGoqAa40GRoweHdBdRXz4l3v/O"),
+                        new [] { Role.Customer, Role.Admin })
                 },
                 {
                     new Guid("98329125-D18B-462D-82F7-6096BFE32E02"),
@@ -33,7 +34,8 @@ namespace ProShop.Auth.App.Services
                         new UserCredentials(
                             "jane.smith@example.com",
                             "vewso2w2tKmGDKK/dwAUOMQwJ1vXyBIG",
-                            "1Ql8nRyGoqAa40GRoweHdBdRXz4l3v/O"))
+                            "1Ql8nRyGoqAa40GRoweHdBdRXz4l3v/O"),
+                        new [] { Role.Customer })
                 }
             };
 

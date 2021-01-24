@@ -1,11 +1,11 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProShop.Core.Exceptions;
 using ProShop.Auth.App.Tests.Unit.Fakes;
 using ProShop.Auth.App.UseCases;
 using ProShop.Auth.Contract.Dtos;
 using ProShop.Auth.Contract.Requests;
 using ProShop.Auth.Domain.Tests.Unit.Fakes;
+using ProShop.Core.Exceptions;
 using System;
 
 namespace ProShop.Auth.App.Tests.Unit.UseCases
@@ -48,7 +48,8 @@ namespace ProShop.Auth.App.Tests.Unit.UseCases
             CreateSut();
 
             UserDto actual = _sut.Execute().Result;
-            UserDto expected = MockUserDtoBuilder.Build();
+            UserDto expected = MockUserDtoBuilder.Build(
+                token: MockTokenDtoBuilder.Build());
 
             actual.Should().BeEquivalentTo(expected,
                 opt => opt.Excluding(obj => obj.Id));
@@ -74,7 +75,8 @@ namespace ProShop.Auth.App.Tests.Unit.UseCases
         {
             _sut = new SignUpUserCommand(
                 _request,
-                _userRepo);
+                _userRepo,
+                new FakeTokenGenerator { Returns = MockTokenDtoBuilder.Build() });
         }
     }
 }
