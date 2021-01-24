@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProShop.Auth.Contract\ProShop.Auth.Contract.csproj" />
+    <ProjectReference Include="..\ProShop.Auth.Domain\ProShop.Auth.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

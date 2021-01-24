@@ -15,8 +15,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ProShop.Shopping.App\ProShop.Shopping.App.csproj" />
-    <ProjectReference Include="..\ProShop.Users.App\ProShop.Users.App.csproj" />
-    <ProjectReference Include="..\ProShop.Users.Contract\ProShop.Users.Contract.csproj" />
+    <ProjectReference Include="..\ProShop.Auth.App\ProShop.Auth.App.csproj" />
+    <ProjectReference Include="..\ProShop.Auth.Contract\ProShop.Auth.Contract.csproj" />
   </ItemGroup>
 
 

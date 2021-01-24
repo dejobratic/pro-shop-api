@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ProShop.Users.App.Services;
-using ProShop.Users.App.UseCases;
+using ProShop.Auth.App.Services;
+using ProShop.Auth.App.UseCases;
 using ProShop.Web.GraphQL.Mutations.Types.Users;
 using ProShop.Web.GraphQL.Queries.Types.Users;
 

@@ -13,17 +13,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Core.Tests.Unit", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{813B232E-670E-461B-B5D8-AA045FDD4683}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users", "Users", "{76F1AC82-D2C9-4BE3-A25E-A8D05DF56BD8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Auth", "Auth", "{76F1AC82-D2C9-4BE3-A25E-A8D05DF56BD8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Users.App", "ProShop.Users.App\ProShop.Users.App.csproj", "{0BA0B21C-F761-4EFB-B7CD-901E9B397381}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Auth.App", "ProShop.Auth.App\ProShop.Auth.App.csproj", "{0BA0B21C-F761-4EFB-B7CD-901E9B397381}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Users.Domain", "ProShop.Users.Domain\ProShop.Users.Domain.csproj", "{61C1A4CB-5FE8-4F44-8440-BE8AA94E0B1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Auth.Domain", "ProShop.Auth.Domain\ProShop.Auth.Domain.csproj", "{61C1A4CB-5FE8-4F44-8440-BE8AA94E0B1C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Users.Domain.Tests.Unit", "ProShop.Users.Domain.Tests.Unit\ProShop.Users.Domain.Tests.Unit.csproj", "{0813E255-6EE7-48E1-A66E-309165779E0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Auth.Domain.Tests.Unit", "ProShop.Auth.Domain.Tests.Unit\ProShop.Auth.Domain.Tests.Unit.csproj", "{0813E255-6EE7-48E1-A66E-309165779E0F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Users.App.Tests.Unit", "ProShop.Users.App.Tests.Unit\ProShop.Users.App.Tests.Unit.csproj", "{0F8DE453-0970-41C3-829B-1096141176AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Auth.App.Tests.Unit", "ProShop.Auth.App.Tests.Unit\ProShop.Auth.App.Tests.Unit.csproj", "{0F8DE453-0970-41C3-829B-1096141176AD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Users.Contract", "ProShop.Users.Contract\ProShop.Users.Contract.csproj", "{ED2BEAD2-250D-4BA1-A27D-4B5A77FF58F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Auth.Contract", "ProShop.Auth.Contract\ProShop.Auth.Contract.csproj", "{ED2BEAD2-250D-4BA1-A27D-4B5A77FF58F3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shopping", "Shopping", "{868A0F6A-A703-4AFF-AD4A-13A4D05602EA}"
 EndProject

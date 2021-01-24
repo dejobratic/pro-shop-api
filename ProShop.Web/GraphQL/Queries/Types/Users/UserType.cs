@@ -1,5 +1,5 @@
 ﻿using GraphQL.Types;
-using ProShop.Users.Contract.Dtos;
+using ProShop.Auth.Contract.Dtos;
 
 namespace ProShop.Web.GraphQL.Queries.Types.Users
 {
