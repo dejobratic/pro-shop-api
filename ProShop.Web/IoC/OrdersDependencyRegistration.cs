@@ -1,9 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ProShop.Orders.App.Services;
-using ProShop.Orders.App.UseCases;
+using ProShop.Shopping.App.Services;
+using ProShop.Shopping.App.UseCases;
 using ProShop.Web.GraphQL.Queries.Types.Orders;
-using ProShop.Web.GraphQL.Types.Orders;
 
 namespace ProShop.Web.IoC
 {
@@ -22,13 +21,6 @@ namespace ProShop.Web.IoC
             IServiceCollection services,
             IConfiguration configuration)
         {
-            services.AddScoped<OrderInputType>();
-            services.AddScoped<OrderItemInputType>();
-            services.AddScoped<ProductInputType>();
-            services.AddScoped<AddressInputType>();
-            services.AddScoped<PaymentInputType>();
-            services.AddScoped<CustomerInputType>();
-
             services.AddScoped<OrderType>();
             services.AddScoped<OrderItemType>();
             services.AddScoped<ProductType>();;

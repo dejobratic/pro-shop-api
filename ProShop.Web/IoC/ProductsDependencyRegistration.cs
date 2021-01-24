@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ProShop.Products.App.Services;
-using ProShop.Products.App.UseCases;
+using ProShop.Shopping.App.Services;
+using ProShop.Shopping.App.UseCases;
 using ProShop.Web.GraphQL.Queries.Types.Products;
 
 namespace ProShop.Web.IoC

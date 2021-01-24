@@ -1,5 +1,5 @@
 ﻿using GraphQL.Types;
-using ProShop.Products.Contract.Dtos;
+using ProShop.Shopping.Contract.Dtos;
 
 namespace ProShop.Web.GraphQL.Queries.Types.Products
 {
