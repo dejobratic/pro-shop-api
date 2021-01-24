@@ -13,6 +13,17 @@ namespace ProShop.Orders.App.Tests.Unit.Mappers
     public class AddressMapperTests
     {
         [TestMethod]
+        public void ToDomainModel_maps_contract_address_to_domain_model()
+        {
+            AddressDto address = MockAddressDtoBuilder.Build();
+
+            Address actual = address.ToDomainModel();
+            Address expected = MockAddressBuilder.Build();
+
+            actual.Should().BeEquivalentTo(expected);
+        }
+
+        [TestMethod]
         public void ToContractModel_maps_domain_address_to_contract_model()
         {
             Address address = MockAddressBuilder.Build();

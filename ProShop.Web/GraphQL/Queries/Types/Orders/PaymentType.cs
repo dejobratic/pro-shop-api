@@ -1,7 +1,7 @@
 ﻿using GraphQL.Types;
 using ProShop.Orders.Contract.Dtos;
 
-namespace ProShop.Web.GraphQL.Types.Orders
+namespace ProShop.Web.GraphQL.Queries.Types.Orders
 {
     public class PaymentType :
         ObjectGraphType<PaymentDto>

@@ -11,10 +11,12 @@ namespace ProShop.Orders.App.Tests.Unit.Fakes
     {
         public Order ReturnsSingle { get; set; }
         public IEnumerable<Order> ReturnsMultiple { get; set; }
+        public Order Saved { get; private set; }
 
-        public Task Add(Order entity)
+        public async Task Add(Order entity)
         {
-            throw new NotImplementedException();
+            await Task.CompletedTask;
+            Saved = entity;
         }
 
         public async Task<Order> Get(Guid id)
@@ -27,7 +29,7 @@ namespace ProShop.Orders.App.Tests.Unit.Fakes
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Order>> GetByCustomerId(Guid userId)
+        public async Task<IEnumerable<Order>> GetByCustomerId(Guid customerId)
         {
             return await Task.FromResult(ReturnsMultiple);
         }

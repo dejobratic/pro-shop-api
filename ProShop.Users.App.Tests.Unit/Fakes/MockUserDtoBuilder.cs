@@ -9,13 +9,15 @@ namespace ProShop.Users.App.Tests.Unit.Fakes
         public static UserDto Build(
             Guid? id = null,
             string firstName = "FirstName",
-            string lastName = "LastName")
+            string lastName = "LastName",
+            string email = "FirstName.LastName@example.com")
         {
             return new UserDto
             {
                 Id = id ?? GuidProvider.UserId,
                 FirstName = firstName,
-                LastName = lastName
+                LastName = lastName,
+                Email = email
             };
         }
     }

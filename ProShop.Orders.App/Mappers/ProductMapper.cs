@@ -5,6 +5,14 @@ namespace ProShop.Orders.App.Mappers
 {
     public static class ProductMapper
     {
+        public static Product ToDomainModel(
+            this ProductDto product)
+        {
+            return new Product(
+                product.Id,
+                product.Name);
+        }
+
         public static ProductDto ToContractModel(
             this Product product)
         {

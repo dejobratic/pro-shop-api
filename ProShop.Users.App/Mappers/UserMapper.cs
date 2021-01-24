@@ -12,7 +12,8 @@ namespace ProShop.Users.App.Mappers
             {
                 Id = user.Id,
                 FirstName = user.FirstName,
-                LastName = user.LastName
+                LastName = user.LastName,
+                Email = user.Credentials.Email
             };
         }
     }

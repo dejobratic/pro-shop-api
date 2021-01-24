@@ -4,7 +4,7 @@ using ProShop.Orders.App.UseCases;
 using ProShop.Orders.Contract.Dtos;
 using ProShop.Orders.Contract.Requests;
 using ProShop.Web.Extensions;
-using ProShop.Web.GraphQL.Types.Orders;
+using ProShop.Web.GraphQL.Queries.Types.Orders;
 using System.Collections.Generic;
 
 namespace ProShop.Web.GraphQL.Queries

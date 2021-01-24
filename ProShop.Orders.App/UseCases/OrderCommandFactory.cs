@@ -19,7 +19,16 @@ namespace ProShop.Orders.App.UseCases
 
         public ICommand Create(IRequest request)
         {
-            throw new NotImplementedException();
+            switch (request)
+            {
+                case CreateOrderRequest createOrderRequest:
+                    return new CreateOrderCommand(
+                        createOrderRequest,
+                        _orderRepo);
+
+                default:
+                    throw new Exception("Unable to create order command.");
+            }
         }
 
         public ICommand<T> Create<T>(IRequest request)

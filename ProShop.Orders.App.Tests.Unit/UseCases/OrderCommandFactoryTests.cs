@@ -30,12 +30,22 @@ namespace ProShop.Orders.App.Tests.Unit.UseCases
         }
 
         [TestMethod]
-        public void Create_without_return_type_should_throw_exception()
+        public void Create_without_return_type_should_create_CreateOrderCommand()
+        {
+            var request = new CreateOrderRequest();
+
+            ICommand actual = _sut.Create(request);
+            actual.Should().BeOfType(typeof(CreateOrderCommand));
+        }
+
+        [TestMethod]
+        public void Create_without_return_type_should_throw_exception_when_called_with_unsupported_request()
         {
             Action action = ()
                 => _sut.Create(new object() as IRequest);
 
-            action.Should().Throw<NotImplementedException>();
+            action.Should().Throw<Exception>()
+                .WithMessage("Unable to create order command.");
         }
 
         [TestMethod]

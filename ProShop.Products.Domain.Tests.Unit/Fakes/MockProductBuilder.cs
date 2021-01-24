@@ -1,5 +1,4 @@
-﻿using ProShop.Core.Models;
-using ProShop.Core.Tests.Unit.Helpers;
+﻿using ProShop.Core.Tests.Unit.Helpers;
 using ProShop.Products.Domain.Models;
 using System;
 using System.Linq;

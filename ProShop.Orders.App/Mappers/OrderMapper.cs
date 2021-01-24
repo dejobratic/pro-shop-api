@@ -6,6 +6,17 @@ namespace ProShop.Orders.App.Mappers
 {
     public static class OrderMapper
     {
+        public static Order ToDomainModel(
+            this OrderDto order)
+        {
+            return new Order(
+                order.Id,
+                order.Items.Select(i => i.ToDomainModel()),
+                order.ShippingAddress.ToDomainModel(),
+                order.Payment.ToDomainModel(),
+                order.Customer.ToDomainModel());
+        }
+
         public static OrderDto ToContractModel(
             this Order order)
         {

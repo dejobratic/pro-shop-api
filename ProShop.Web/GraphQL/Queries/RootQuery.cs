@@ -6,7 +6,7 @@ namespace ProShop.Web.GraphQL.Queries
     public partial class RootQuery :
         ObjectGraphType
     {
-        protected readonly IServiceProvider _provider;
+        private readonly IServiceProvider _provider;
 
         public RootQuery(
             IServiceProvider provider)

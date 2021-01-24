@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using ProShop.Products.App.Services;
 using ProShop.Products.App.UseCases;
-using ProShop.Web.GraphQL.Types.Products;
+using ProShop.Web.GraphQL.Queries.Types.Products;
 
 namespace ProShop.Web.IoC
 {
@@ -29,7 +29,7 @@ namespace ProShop.Web.IoC
         private static void RegisterCoreDependencies(
             IServiceCollection services, IConfiguration configuration)
         {
-            services.AddScoped<IProductRepository, DummyProductRepository>();
+            services.AddSingleton<IProductRepository, DummyProductRepository>();
 
             services.AddScoped<IProductCommandFactory, ProductCommandFactory>();
         }

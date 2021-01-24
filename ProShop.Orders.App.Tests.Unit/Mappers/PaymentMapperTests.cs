@@ -13,6 +13,18 @@ namespace ProShop.Orders.App.Tests.Unit.Mappers
     public class PaymentMapperTests
     {
         [TestMethod]
+        public void ToDomainModel_maps_contract_payment_to_domain_model()
+        {
+            PaymentDto payment = MockPaymentDtoBuilder.Build();
+
+            Payment actual = payment.ToDomainModel();
+            Payment expected = MockPaymentBuilder.Build();
+
+            actual.Should().BeEquivalentTo(expected);
+        }
+
+
+        [TestMethod]
         public void ToContractModel_maps_domain_payment_to_contract_model()
         {
             Payment payment = MockPaymentBuilder.Build();

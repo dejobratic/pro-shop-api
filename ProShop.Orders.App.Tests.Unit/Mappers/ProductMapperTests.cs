@@ -13,6 +13,17 @@ namespace ProShop.Orders.App.Tests.Unit.Mappers
     public class ProductMapperTests
     {
         [TestMethod]
+        public void ToDomainModel_maps_contract_products_to_domain_model()
+        {
+            ProductDto products = MockProductDtoBuilder.Build();
+
+            Product actual = products.ToDomainModel();
+            Product expected = MockProductBuilder.Build();
+
+            actual.Should().BeEquivalentTo(expected);
+        }
+
+        [TestMethod]
         public void ToContractModel_maps_domain_product_to_contract_model()
         {
             Product product = MockProductBuilder.Build();

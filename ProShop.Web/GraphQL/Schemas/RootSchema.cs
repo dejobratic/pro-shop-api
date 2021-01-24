@@ -1,5 +1,6 @@
 ﻿using GraphQL.Types;
 using Microsoft.Extensions.DependencyInjection;
+using ProShop.Web.GraphQL.Mutations;
 using ProShop.Web.GraphQL.Queries;
 using System;
 
@@ -14,6 +15,7 @@ namespace ProShop.Web.GraphQL.Schemas
             : base(provider)
         {
             Query = provider.GetRequiredService<RootQuery>();
+            Mutation = provider.GetRequiredService<RootMutation>();
         }
     }
 }

@@ -6,6 +6,16 @@ namespace ProShop.Orders.App.Mappers
 {
     public static class CustomerMapper
     {
+        public static Customer ToDomainModel(
+            this CustomerDto customer)
+        {
+            return new Customer(
+                customer.Id,
+                customer.FirstName,
+                customer.LastName,
+                customer.Orders?.Select(o => o.ToDomainModel()));
+        }
+
         public static CustomerDto ToContractModel(
             this Customer customer)
         {

@@ -2,6 +2,7 @@
 using GraphQL.Types;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ProShop.Web.GraphQL.Mutations;
 using ProShop.Web.GraphQL.Queries;
 using ProShop.Web.GraphQL.Schemas;
 
@@ -27,6 +28,7 @@ namespace ProShop.Web.IoC
             IConfiguration configuration)
         {
             services.AddScoped<RootQuery>();
+            services.AddScoped<RootMutation>();
             services.AddScoped<ISchema, RootSchema>();
             services.AddScoped<IDocumentExecuter, DocumentExecuter>();
         }

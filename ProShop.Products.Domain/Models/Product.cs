@@ -25,13 +25,6 @@ namespace ProShop.Products.Domain.Models
             IEnumerable<ProductReview> reviews)
             : this(Guid.NewGuid(), name, brand, category, description, price, quantityInStock, reviews)
         {
-            Name = name;
-            Brand = brand;
-            Category = category;
-            Description = description;
-            Price = price;
-            QuantityInStock = quantityInStock;
-            Reviews = reviews;
         }
 
         public Product(
@@ -51,7 +44,7 @@ namespace ProShop.Products.Domain.Models
             Description = description;
             Price = price;
             QuantityInStock = quantityInStock;
-            Reviews = reviews;
+            Reviews = reviews ?? new List<ProductReview> { };
         }
     }
 }

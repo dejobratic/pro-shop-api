@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using ProShop.Orders.App.Services;
 using ProShop.Orders.App.UseCases;
+using ProShop.Web.GraphQL.Queries.Types.Orders;
 using ProShop.Web.GraphQL.Types.Orders;
 
 namespace ProShop.Web.IoC
@@ -21,6 +22,13 @@ namespace ProShop.Web.IoC
             IServiceCollection services,
             IConfiguration configuration)
         {
+            services.AddScoped<OrderInputType>();
+            services.AddScoped<OrderItemInputType>();
+            services.AddScoped<ProductInputType>();
+            services.AddScoped<AddressInputType>();
+            services.AddScoped<PaymentInputType>();
+            services.AddScoped<CustomerInputType>();
+
             services.AddScoped<OrderType>();
             services.AddScoped<OrderItemType>();
             services.AddScoped<ProductType>();;
@@ -32,7 +40,7 @@ namespace ProShop.Web.IoC
         private static void RegisterCoreDependencies(
             IServiceCollection services, IConfiguration configuration)
         {
-            services.AddScoped<IOrderRepository, DummyOrderRepository>();
+            services.AddSingleton<IOrderRepository, DummyOrderRepository>();
 
             services.AddScoped<IOrderCommandFactory, OrderCommandFactory>();
         }

@@ -5,6 +5,18 @@ namespace ProShop.Orders.App.Mappers
 {
     public static class AddressMapper
     {
+        public static Address ToDomainModel(
+            this AddressDto address)
+        {
+            return new Address(
+                address.StreetLine1,
+                address.StreetLine2,
+                address.City,
+                address.StateOrProvince,
+                address.PostalCode,
+                address.Country);
+        }
+
         public static AddressDto ToContractModel(
             this Address address)
         {

@@ -2,7 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using ProShop.Users.App.Services;
 using ProShop.Users.App.UseCases;
-using ProShop.Web.GraphQL.Types.Users;
+using ProShop.Web.GraphQL.Mutations.Types.Users;
+using ProShop.Web.GraphQL.Queries.Types.Users;
 
 namespace ProShop.Web.IoC
 {
@@ -21,13 +22,16 @@ namespace ProShop.Web.IoC
             IServiceCollection services,
             IConfiguration configuration)
         {
+            services.AddScoped<SignUpUserType>();
+            services.AddScoped<SignInUserType>();
+
             services.AddScoped<UserType>();
         }
 
         private static void RegisterCoreDependencies(
             IServiceCollection services, IConfiguration configuration)
         {
-            services.AddScoped<IUserRepository, DummyUserRepository>();
+            services.AddSingleton<IUserRepository, DummyUserRepository>();
 
             services.AddScoped<IUserCommandFactory, UserCommandFactory>();
         }

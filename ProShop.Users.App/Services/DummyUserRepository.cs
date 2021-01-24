@@ -1,4 +1,5 @@
-﻿using ProShop.Users.Domain.Models;
+﻿using ProShop.Core.Exceptions;
+using ProShop.Users.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,9 +37,10 @@ namespace ProShop.Users.App.Services
                 }
             };
 
-        public Task Add(User entity)
+        public async Task Add(User user)
         {
-            throw new NotImplementedException();
+            await Task.CompletedTask;
+            _userSet.Add(user.Id, user);
         }
 
         public async Task<User> Get(Guid id)
@@ -53,7 +55,14 @@ namespace ProShop.Users.App.Services
 
         public async Task<User> GetByEmail(string email)
         {
-            return await Task.FromResult(_userSet.Values.First());
+            User existingUser = _userSet.Values
+                .Where(u => u.Credentials.Email == email)
+                .SingleOrDefault();
+
+            if (existingUser is null)
+                throw new EntityNotFoundException();
+
+            return await Task.FromResult(existingUser);
         }
 
         public Task Update(User entity)
