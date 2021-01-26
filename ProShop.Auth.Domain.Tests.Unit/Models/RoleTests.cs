@@ -9,7 +9,7 @@ namespace ProShop.Auth.Domain.Tests.Unit.Models
     public class RoleTests
     {
         [TestMethod]
-        public void Able_to_create_role()
+        public void Able_to_create_instance()
         {
             var expectedName = "Customer";
 
