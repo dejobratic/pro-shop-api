@@ -29,7 +29,8 @@ namespace ProShop.Web.GraphQL.Queries
                     var command = commandFactory.Create<OrderDto>(request);
 
                     return await command.Execute();
-                });
+                })
+                .RequiresPermission("Customer");
 
             FieldAsync<ListGraphType<OrderType>>(
                 name: "ordersByCustomerId",
@@ -43,7 +44,8 @@ namespace ProShop.Web.GraphQL.Queries
                     var command = commandFactory.Create<IEnumerable<OrderDto>>(request);
 
                     return await command.Execute();
-                });
+                })
+                .RequiresPermission("Customer");
         }
     }
 }

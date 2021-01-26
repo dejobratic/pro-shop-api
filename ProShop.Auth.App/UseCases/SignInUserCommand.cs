@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace ProShop.Auth.App.UseCases
 {
     public class SignInUserCommand :
-       ICommand<UserDto>
+        ICommand<UserDto>
     {
         private readonly SignInUserRequest _request;
         private readonly IUserRepository _userRepo;

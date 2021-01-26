@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using GraphQL.Validation;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -6,6 +7,7 @@ using ProShop.Auth.App.Models;
 using ProShop.Auth.App.Services;
 using ProShop.Auth.App.UseCases;
 using ProShop.Auth.Domain.Models;
+using ProShop.Web.GraphQL;
 using ProShop.Web.GraphQL.Mutations.Types.Auth;
 using ProShop.Web.GraphQL.Types.Auth;
 
@@ -62,6 +64,9 @@ namespace ProShop.Web.IoC
                     opt.AddPolicy(Role.Customer.Name, p => p.RequireClaim(Role.Customer.Name));
                     opt.AddPolicy(Role.Admin.Name, p => p.RequireClaim(Role.Admin.Name));
                 });
+            
+            services.AddHttpContextAccessor();
+            services.AddScoped<IValidationRule, GraphQLAuthValidationRule>();
         }
 
         private static void RegisterGraphQlDependencies(

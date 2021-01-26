@@ -18,8 +18,8 @@ namespace ProShop.Web.IoC
             RegisterCoreDependencies(services, configuration);
             RegisterPersistenceDependencies(services, configuration);
 
-            ShoppingDependencyConfig.AddDependencies(services, configuration);
             AuthDependencyConfig.AddDependencies(services, configuration);
+            ShoppingDependencyConfig.AddDependencies(services, configuration);
         }
 
         private static void RegisterGraphQlDependencies(
