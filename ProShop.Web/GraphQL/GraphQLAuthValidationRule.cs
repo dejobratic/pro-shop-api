@@ -1,5 +1,7 @@
 ﻿using GraphQL.Language.AST;
 using GraphQL.Validation;
+using ProShop.Auth.Domain.Exceptions;
+using ProShop.Web.GraphQL.Extensions;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,35 +16,23 @@ namespace ProShop.Web.GraphQL
             var userContext = context.UserContext as GraphQLUserContext;
             
             var user = userContext?.User;
-            var isAuthenticated = user?.Identity?.IsAuthenticated ?? false;
+            var userClaims = user?.Claims?.Select(_ => _.Value)?.ToList();
+            var userAuthenticated = user?.Identity?.IsAuthenticated ?? false;
 
             await Task.CompletedTask;
-            return new EnterLeaveListener(op =>
+            return new EnterLeaveListener(_ =>
             {
-                op.Match<Field>(field =>
+                _.Match<Field>(field =>
                 {
                     var fieldType = context.TypeInfo.GetFieldDef();
-                    var claims = user?.Claims?.Select(_ => _.Value)?.ToList();
 
-                    if (fieldType.ContainsAnyClaims() && (!isAuthenticated || !fieldType.ContainsMatchingClaims(claims)))
-                    {
-                        var error = CreateAuthError(context.OriginalQuery, field);
+                    var permissionsRequired = fieldType.RequiresClaims();
+                    var userAuthorized = userAuthenticated && fieldType.ContainsMatchingClaims(userClaims);
 
-                        context.ReportError(error);
-                    }
+                    if (permissionsRequired && !userAuthorized)
+                        throw new UserUnauthorizedException();
                 });
             });
-        }
-
-        private static ValidationError CreateAuthError(
-            string originalQuery,
-            Field field)
-        {
-            return new ValidationError(
-                originalQuery,
-                "auth-required",
-                $"User is unauthorized for this operation.",
-                field);
         }
     }
 }

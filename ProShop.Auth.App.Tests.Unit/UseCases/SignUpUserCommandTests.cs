@@ -68,7 +68,7 @@ namespace ProShop.Auth.App.Tests.Unit.UseCases
             Action action = ()
                 => _sut.Execute().Wait();
 
-            action.Should().Throw<UserAlreadyExistsException>();
+            action.Should().Throw<EntityAlreadyExistsException>();
         }
 
         private void CreateSut()

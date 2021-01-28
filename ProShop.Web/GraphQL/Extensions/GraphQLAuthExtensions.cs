@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ProShop.Web.GraphQL
+namespace ProShop.Web.GraphQL.Extensions
 {
     public static class GraphQLAuthExtensions
     {
@@ -26,7 +26,7 @@ namespace ProShop.Web.GraphQL
             return permissions.Any(p => claims.Contains(p));
         }
 
-        public static bool ContainsAnyClaims(
+        public static bool RequiresClaims(
             this IProvideMetadata type)
         {
             var permissions = type.GetPermissions(new List<string> { });

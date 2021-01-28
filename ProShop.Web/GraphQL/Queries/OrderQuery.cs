@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ProShop.Shopping.App.UseCases;
 using ProShop.Shopping.Contract.Dtos;
 using ProShop.Shopping.Contract.Requests;
+using ProShop.Web.GraphQL.Extensions;
 using ProShop.Web.GraphQL.Types.Shopping;
 using System;
 using System.Collections.Generic;

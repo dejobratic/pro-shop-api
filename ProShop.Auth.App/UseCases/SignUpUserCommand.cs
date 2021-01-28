@@ -43,7 +43,7 @@ namespace ProShop.Auth.App.UseCases
             try
             {
                 await _userRepo.GetByEmail(_request.Email);
-                throw new UserAlreadyExistsException();
+                throw new EntityAlreadyExistsException(typeof(User));
             }
             catch (EntityNotFoundException) { }
         }

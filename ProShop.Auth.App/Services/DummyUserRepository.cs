@@ -62,7 +62,7 @@ namespace ProShop.Auth.App.Services
                 .SingleOrDefault();
 
             if (existingUser is null)
-                throw new EntityNotFoundException();
+                throw new EntityNotFoundException(typeof(User));
 
             return await Task.FromResult(existingUser);
         }

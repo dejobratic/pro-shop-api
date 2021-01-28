@@ -4,7 +4,7 @@ using GraphQL.Validation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProShop.Web.GraphQL;
-using System.Linq;
+using ProShop.Web.GraphQL.Extensions;
 using System.Threading.Tasks;
 
 namespace ProShop.Web.Controllers
@@ -21,7 +21,7 @@ namespace ProShop.Web.Controllers
         public GraphQLController(
             ISchema schema,
             IDocumentExecuter executer,
-            IValidationRule validationRule, 
+            IValidationRule validationRule,
             IHttpContextAccessor httpContextAccessor)
         {
             _schema = schema;
@@ -45,9 +45,9 @@ namespace ProShop.Web.Controllers
                 });
 
             if (result.Errors?.Count > 0)
-            {
-                return BadRequest(result.Errors.Select(e => string.Join(" ", e.Message, e.InnerException?.Message)));
-            }
+                return result.Errors.ToActionResult();
+
+
 
             return Ok(result.Data);
         }
