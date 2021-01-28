@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ProShop.Shopping.App.Services;
-using ProShop.Shopping.App.UseCases;
-using ProShop.Web.GraphQL.Types.Shopping;
+using ProShop.Store.App.Services;
+using ProShop.Store.App.UseCases;
+using ProShop.Web.GraphQL.Types.Store;
 
 namespace ProShop.Web.IoC
 {
-    public static class ShoppingDependencyConfig
+    public static class StoreDependencyConfig
     {
         public static void AddDependencies(
             IServiceCollection services,

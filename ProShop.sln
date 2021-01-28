@@ -25,17 +25,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Auth.App.Tests.Unit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Auth.Contract", "ProShop.Auth.Contract\ProShop.Auth.Contract.csproj", "{ED2BEAD2-250D-4BA1-A27D-4B5A77FF58F3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shopping", "Shopping", "{868A0F6A-A703-4AFF-AD4A-13A4D05602EA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Store", "Store", "{868A0F6A-A703-4AFF-AD4A-13A4D05602EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProShop.Shopping.App", "ProShop.Shopping.App\ProShop.Shopping.App.csproj", "{AE29D503-20D6-465A-AAD2-800F36E3C5D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Store.App", "ProShop.Store.App\ProShop.Store.App.csproj", "{AE29D503-20D6-465A-AAD2-800F36E3C5D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProShop.Shopping.Domain", "ProShop.Shopping.Domain\ProShop.Shopping.Domain.csproj", "{AD4B805F-03CF-46F7-9266-D42F3664744E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Store.Domain", "ProShop.Store.Domain\ProShop.Store.Domain.csproj", "{AD4B805F-03CF-46F7-9266-D42F3664744E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProShop.Shopping.Domain.Tests.Unit", "ProShop.Shopping.Domain.Tests.Unit\ProShop.Shopping.Domain.Tests.Unit.csproj", "{36BD43F0-6138-4510-817C-6D23F4D77529}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Store.Domain.Tests.Unit", "ProShop.Store.Domain.Tests.Unit\ProShop.Store.Domain.Tests.Unit.csproj", "{36BD43F0-6138-4510-817C-6D23F4D77529}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProShop.Shopping.Contract", "ProShop.Shopping.Contract\ProShop.Shopping.Contract.csproj", "{9730926A-9883-4BEF-BB32-A9F169704AC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Store.Contract", "ProShop.Store.Contract\ProShop.Store.Contract.csproj", "{9730926A-9883-4BEF-BB32-A9F169704AC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProShop.Shopping.App.Tests.Unit", "ProShop.Shopping.App.Tests.Unit\ProShop.Shopping.App.Tests.Unit.csproj", "{AF10777B-7E80-4225-9D16-06D58EDDDA43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProShop.Store.App.Tests.Unit", "ProShop.Store.App.Tests.Unit\ProShop.Store.App.Tests.Unit.csproj", "{AF10777B-7E80-4225-9D16-06D58EDDDA43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

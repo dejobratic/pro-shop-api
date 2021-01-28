@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProShop.Contract\ProShop.Contract.csproj" />
+    <ProjectReference Include="..\ProShop.Store.Contract\ProShop.Store.Contract.csproj" />
+    <ProjectReference Include="..\ProShop.Store.Domain\ProShop.Store.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,7 +1,7 @@
 ﻿using GraphQL.Types;
-using ProShop.Shopping.Contract.Dtos;
+using ProShop.Store.Contract.Dtos;
 
-namespace ProShop.Web.GraphQL.Types.Shopping
+namespace ProShop.Web.GraphQL.Types.Store
 {
     public class OrderItemType :
         ObjectGraphType<OrderItemDto>

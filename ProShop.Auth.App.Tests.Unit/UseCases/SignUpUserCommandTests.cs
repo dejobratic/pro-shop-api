@@ -4,6 +4,7 @@ using ProShop.Auth.App.Tests.Unit.Fakes;
 using ProShop.Auth.App.UseCases;
 using ProShop.Auth.Contract.Dtos;
 using ProShop.Auth.Contract.Requests;
+using ProShop.Auth.Domain.Models;
 using ProShop.Auth.Domain.Tests.Unit.Fakes;
 using ProShop.Core.Exceptions;
 using System;
@@ -44,7 +45,7 @@ namespace ProShop.Auth.App.Tests.Unit.UseCases
         [TestMethod]
         public void Execute_registers_new_user()
         {
-            _userRepo.ThrowsOnGet = new EntityNotFoundException();
+            _userRepo.ThrowsOnGet = new EntityNotFoundException(typeof(User));
             CreateSut();
 
             UserDto actual = _sut.Execute().Result;
