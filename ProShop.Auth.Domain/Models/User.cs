@@ -6,7 +6,7 @@ using System.Linq;
 namespace ProShop.Auth.Domain.Models
 {
     public class User :
-        Entity<Guid>
+        AggregateRoot
     {
         private readonly HashSet<Role> _roles;
 
@@ -21,6 +21,7 @@ namespace ProShop.Auth.Domain.Models
             UserCredentials credentials)
             : this(Guid.NewGuid(), firstName, lastName, credentials, new[] { Role.Customer })
         {
+            AddDomainEvent(new UserCreatedEvent(Id, FirstName, LastName));
         }
 
         public User(

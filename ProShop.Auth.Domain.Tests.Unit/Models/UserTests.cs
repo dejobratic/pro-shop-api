@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProShop.Auth.Domain.Models;
 using System;
+using System.Linq;
 
 namespace ProShop.Auth.Domain.Tests.Unit.Models
 {
@@ -54,6 +55,25 @@ namespace ProShop.Auth.Domain.Tests.Unit.Models
             sut.LastName.Should().Be(expectedLastName);
             sut.Credentials.Should().Be(expectedCredentials);
             sut.Roles.Should().BeEquivalentTo(expectedRoles);
+        }
+
+        [TestMethod]
+        public void Creates_domain_event_when_new_user_is_created()
+        {
+            var sut = new User(
+                "FirstName",
+                "LastName",
+                new UserCredentials(
+                    "vewso2w2tKmGDKK/dwAUOMQwJ1vXyBIG",
+                    "1Ql8nRyGoqAa40GRoweHdBdRXz4l3v/O"));
+
+            var actual = sut.DomainEvents.Single();
+            var expected = new UserCreatedEvent(
+                sut.Id,
+                sut.FirstName,
+                sut.LastName);
+
+            actual.Should().BeEquivalentTo(expected);
         }
     }
 }
