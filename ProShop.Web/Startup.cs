@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProShop.Web.Filters;
 using ProShop.Web.IoC;
 
 namespace ProShop
@@ -21,7 +22,10 @@ namespace ProShop
         {
             services.AddDependencies(Configuration);
 
-            services.AddControllers();
+            services.AddControllers(opt =>
+            {
+                opt.Filters.Add(new ExceptionHandlingFilter());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

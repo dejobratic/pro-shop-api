@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace ProShop.Store.Domain.Models
 {
     public class Product :
-        Entity<Guid>
+        AggregateRoot
     {
         public string Name { get; }
         public string Brand { get; }
