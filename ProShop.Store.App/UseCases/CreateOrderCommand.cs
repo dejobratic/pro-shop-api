@@ -3,6 +3,8 @@ using ProShop.Store.App.Mappers;
 using ProShop.Store.App.Services;
 using ProShop.Store.Contract.Requests;
 using ProShop.Store.Domain.Models;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ProShop.Store.App.UseCases
@@ -23,8 +25,28 @@ namespace ProShop.Store.App.UseCases
 
         public async Task Execute()
         {
-            Order order = _request.Order.ToDomainModel();
+            Order order = CreateOrder();
             await _orderRepo.Add(order);
         }
+
+        private Order CreateOrder()
+        {
+            return new Order(
+                CreateOrderItems(),
+                CreateShippingAddress(),
+                _request.Order.Customer);
+        }
+
+        private IEnumerable<OrderItem> CreateOrderItems()
+        {
+            foreach (var item in _request.Order.Items)
+                yield return new OrderItem(
+                    item.Product,
+                    item.Quantity,
+                    item.Price);
+        }
+
+        private Address CreateShippingAddress()
+            => _request.Order.ShippingAddress.ToDomainModel();
     }
 }

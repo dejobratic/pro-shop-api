@@ -9,20 +9,26 @@ namespace ProShop.Store.Domain.Models
     {
         public IEnumerable<OrderItem> Items { get; }
         public Address ShippingAddress { get; }
-        public Payment Payment { get; }
         public Guid Customer { get; }
+
+        public Order(
+            IEnumerable<OrderItem> items,
+            Address shippingAddress,
+            Guid customer)
+            : this(Guid.NewGuid(), items, shippingAddress, customer)
+        {
+            AddDomainEvent(new OrderCreatedEvent(Id, items, shippingAddress, customer));
+        }
 
         public Order(
             Guid id,
             IEnumerable<OrderItem> items,
             Address shippingAddress,
-            Payment payment,
             Guid customer)
             : base(id)
         {
             Items = items;
             ShippingAddress = shippingAddress;
-            Payment = payment;
             Customer = customer;
         }
     }

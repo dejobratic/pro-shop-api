@@ -10,7 +10,6 @@ namespace ProShop.Store.App.Tests.Unit.Fakes
         public static OrderDto Build(
             Guid? id = null,
             AddressDto shippingAddress = null,
-            PaymentDto payment = null,
             Guid? customer = null,
             params OrderItemDto[] items)
         {
@@ -22,7 +21,6 @@ namespace ProShop.Store.App.Tests.Unit.Fakes
                 Id = id ?? GuidProvider.OrderId,
                 Items = items,
                 ShippingAddress = shippingAddress ?? MockAddressDtoBuilder.Build(),
-                Payment = payment ?? MockPaymentDtoBuilder.Build(),
                 Customer = customer ?? GuidProvider.UserId
             };
         }

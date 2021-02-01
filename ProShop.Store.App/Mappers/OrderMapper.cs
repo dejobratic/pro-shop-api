@@ -13,7 +13,6 @@ namespace ProShop.Store.App.Mappers
                 order.Id,
                 order.Items.Select(i => i.ToDomainModel()),
                 order.ShippingAddress.ToDomainModel(),
-                order.Payment.ToDomainModel(),
                 order.Customer);
         }
 
@@ -25,7 +24,6 @@ namespace ProShop.Store.App.Mappers
                 Id = order.Id,
                 Items = order.Items.Select(i => i.ToContractModel()),
                 ShippingAddress = order.ShippingAddress.ToContractModel(),
-                Payment = order.Payment.ToContractModel(),
                 Customer = order.Customer
             };
         }

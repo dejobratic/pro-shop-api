@@ -31,10 +31,6 @@ namespace ProShop.Store.App.Services
                             "CA",
                             "94304",
                             "US"),
-                        new Payment(
-                            PaymentMethod.PayPal,
-                            true,
-                            DateTime.UtcNow),
                         new Guid("657D2C04-9FF1-4144-84FA-1D1065B411EB"))
                 },
                 {
@@ -56,10 +52,6 @@ namespace ProShop.Store.App.Services
                             "CA",
                             "95014",
                             "US"),
-                        new Payment(
-                            PaymentMethod.PayPal,
-                            true,
-                            DateTime.UtcNow),
                         new Guid("98329125-D18B-462D-82F7-6096BFE32E02"))
                 }
             };

@@ -11,6 +11,14 @@ namespace ProShop.Store.Domain.Models
         public decimal Price { get; }
 
         public OrderItem(
+            Guid product,
+            int quantity, 
+            decimal price)
+            : this(Guid.NewGuid(), product, quantity, price)
+        {
+        }
+
+        public OrderItem(
             Guid id,
             Guid product,
             int quantity,

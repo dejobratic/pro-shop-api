@@ -10,7 +10,6 @@ namespace ProShop.Store.Domain.Tests.Unit.Fakes
         public static Order Build(
             Guid? id = null,
             Address shippingAddress = null,
-            Payment payment = null,
             Guid? customer = null,
             params OrderItem[] orderItems)
         {
@@ -21,7 +20,6 @@ namespace ProShop.Store.Domain.Tests.Unit.Fakes
                 id ?? GuidProvider.OrderId,
                 orderItems,
                 shippingAddress ?? MockAddressBuilder.Build(),
-                payment ?? MockPaymentBuilder.Build(),
                 customer ?? GuidProvider.UserId);
         }
     }

@@ -24,7 +24,6 @@ namespace ProShop.Web.IoC
             services.AddScoped<OrderType>();
             services.AddScoped<OrderItemType>();
             services.AddScoped<AddressType>();
-            services.AddScoped<PaymentType>();
             services.AddScoped<CustomerType>();
 
             services.AddScoped<ProductType>();
