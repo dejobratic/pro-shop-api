@@ -34,8 +34,11 @@ namespace ProShop.Store.App.Tests.Unit.UseCases
             Order actual = _orderRepo.Saved;
             Order expected = MockOrderBuilder.Build();
 
-            actual.Should().BeEquivalentTo(expected,
-                opt => opt.Excluding(o => o.Id).Excluding(o => Regex.IsMatch(o.SelectedMemberPath, @"Children\[.+\]\.ID")));
+            actual.Should().BeEquivalentTo(expected, opt => 
+                opt
+                .Excluding(o => o.Id)
+                .Excluding(o => Regex.IsMatch(o.SelectedMemberPath, @"Children\[.+\]\.Id"))
+                .Excluding(o => o.DomainEvents));
         }
 
         private void CreateSut()

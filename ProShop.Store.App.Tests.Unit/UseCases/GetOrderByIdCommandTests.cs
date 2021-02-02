@@ -5,6 +5,7 @@ using ProShop.Store.App.UseCases;
 using ProShop.Store.Contract.Dtos;
 using ProShop.Store.Contract.Requests;
 using ProShop.Store.Domain.Tests.Unit.Fakes;
+using System;
 
 namespace ProShop.Store.App.Tests.Unit.UseCases
 {
@@ -13,6 +14,9 @@ namespace ProShop.Store.App.Tests.Unit.UseCases
     public class GetOrderByIdCommandTests
     {
         private GetOrderByIdCommand _sut;
+
+        private static readonly Guid ExpectedOrderId
+            = Guid.NewGuid();
 
         [TestInitialize]
         public void Initialize()
@@ -29,7 +33,7 @@ namespace ProShop.Store.App.Tests.Unit.UseCases
         public void Execute_gets_order_by_id()
         {
             OrderDto actual = _sut.Execute().Result;
-            OrderDto expected = MockOrderDtoBuilder.Build();
+            OrderDto expected = MockOrderDtoBuilder.Build(id: ExpectedOrderId);
 
             actual.Should().BeEquivalentTo(expected);
         }
@@ -38,7 +42,7 @@ namespace ProShop.Store.App.Tests.Unit.UseCases
         {
             _sut = new GetOrderByIdCommand(
                 new GetOrderByIdRequest(),
-                new FakeOrderRepository { ReturnsSingle = MockOrderBuilder.Build() });
+                new FakeOrderRepository { ReturnsSingle = MockOrderBuilder.Build(id: ExpectedOrderId) });
         }
     }
 }

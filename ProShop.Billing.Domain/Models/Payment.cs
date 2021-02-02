@@ -1,4 +1,5 @@
-﻿using ProShop.Core.Models;
+﻿using ProShop.Core.Exceptions;
+using ProShop.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace ProShop.Billing.Domain.Models
 
         public Guid OrderId { get; }
         public string Method { get; }
-        public decimal Amount { get;}
+        public decimal Amount { get; }
         public IReadOnlyList<PaymentStatus> Statuses => _statuses;
 
         public Payment(
@@ -20,20 +21,34 @@ namespace ProShop.Billing.Domain.Models
             string method,
             decimal amount,
             DateTime createdAt)
-            : base(Guid.NewGuid())
+            : this(Guid.NewGuid(), orderId, method, amount, new List<PaymentStatus>())
+        {
+            AddPaymentStatus("Pending", createdAt);
+        }
+
+        public Payment(
+            Guid id,
+            Guid orderId,
+            string method,
+            decimal amount,
+            IEnumerable<PaymentStatus> statuses)
+            : base(id)
         {
             OrderId = orderId;
             Method = method;
             Amount = amount;
-            _statuses.Add(new PaymentStatus("Pending", createdAt));
+            _statuses = statuses.ToList();
         }
 
         public void Pay(DateTime paidAt)
         {
             if (_statuses.Select(s => s.Name).Contains("Completed"))
-                throw new Exception("Already paid.");
+                throw new InvalidDomainOperationException();
 
-            _statuses.Add(new PaymentStatus("Completed", paidAt));
+            AddPaymentStatus("Completed", paidAt);
         }
+
+        private void AddPaymentStatus(string name, DateTime createdAt)
+            => _statuses.Add(new PaymentStatus(name, createdAt));
     }
 }
