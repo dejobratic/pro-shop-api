@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProShop.Billing.Contract\ProShop.Billing.Contract.csproj" />
+    <ProjectReference Include="..\ProShop.Billing.Domain\ProShop.Billing.Domain.csproj" />
+    <ProjectReference Include="..\ProShop.Core\ProShop.Core.csproj" />
+  </ItemGroup>
+
+</Project>
