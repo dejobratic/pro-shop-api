@@ -12,6 +12,7 @@ namespace ProShop.Auth.Domain.Tests.Unit.Fakes
             string firstName = "FirstName",
             string lastName = "LastName",
             UserCredentials credentials = null,
+            bool verified = false,
             params Role[] roles)
         {
             if (!roles.Any())
@@ -22,6 +23,7 @@ namespace ProShop.Auth.Domain.Tests.Unit.Fakes
                 firstName,
                 lastName,
                 credentials ?? MockUserCredentialsBuilder.Build(),
+                verified,
                 roles);
         }
     }

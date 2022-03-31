@@ -23,6 +23,7 @@ namespace ProShop.Auth.App.Services
                             "john.doe@example.com",
                             "vewso2w2tKmGDKK/dwAUOMQwJ1vXyBIG",
                             "1Ql8nRyGoqAa40GRoweHdBdRXz4l3v/O"),
+                        true,
                         new [] { Role.Customer, Role.Admin })
                 },
                 {
@@ -35,6 +36,7 @@ namespace ProShop.Auth.App.Services
                             "jane.smith@example.com",
                             "vewso2w2tKmGDKK/dwAUOMQwJ1vXyBIG",
                             "1Ql8nRyGoqAa40GRoweHdBdRXz4l3v/O"),
+                        false,
                         new [] { Role.Customer })
                 }
             };

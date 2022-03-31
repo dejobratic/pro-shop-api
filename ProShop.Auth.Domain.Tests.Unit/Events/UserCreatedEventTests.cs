@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProShop.Auth.Domain.Models;
+using ProShop.Auth.Domain.Events;
 using System;
 
-namespace ProShop.Auth.Domain.Tests.Unit.Models
+namespace ProShop.Auth.Domain.Tests.Unit.Events
 {
     [TestClass]
     [TestCategory("Unit")]

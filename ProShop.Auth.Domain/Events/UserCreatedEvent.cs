@@ -1,7 +1,7 @@
 ﻿using ProShop.Core.Models;
 using System;
 
-namespace ProShop.Auth.Domain.Models
+namespace ProShop.Auth.Domain.Events
 {
     public class UserCreatedEvent :
         IDomainEvent
